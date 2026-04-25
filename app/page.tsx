@@ -132,8 +132,8 @@ export default function Home() {
             <a href="#events" className="text-muted hover:text-dark transition-colors">
               Events
             </a>
-            <a href="#waitlist" className="text-muted hover:text-dark transition-colors">
-              Waitlist
+            <a href="#inquire" className="text-muted hover:text-dark transition-colors">
+              Inquire
             </a>
           </div>
         </div>
@@ -172,10 +172,10 @@ export default function Home() {
               </motion.p>
               <motion.div variants={fadeIn} className="flex flex-wrap gap-4 pt-4">
                 <a
-                  href="#waitlist"
+                  href="#inquire"
                   className="bg-dark text-cream px-8 py-4 text-sm tracking-wide hover:bg-forest transition-colors"
                 >
-                  Join the Waitlist
+                  Submit Inquiry
                 </a>
                 <a
                   href="#how-it-works"
@@ -245,12 +245,12 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator - hidden on mobile */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2"
         >
           <span className="text-xs tracking-[0.2em] uppercase text-muted">Scroll</span>
           <motion.div
@@ -328,10 +328,10 @@ export default function Home() {
                 <h3 className="font-serif text-2xl mb-4">{event.title}</h3>
                 <p className="text-muted leading-relaxed mb-6">{event.description}</p>
                 <a
-                  href="#waitlist"
+                  href="#inquire"
                   className="text-sm tracking-wide text-gold group-hover:underline"
                 >
-                  Join Waitlist &rarr;
+                  Inquire &rarr;
                 </a>
               </div>
             ))}
@@ -344,10 +344,10 @@ export default function Home() {
                 Team building that doesn&apos;t feel forced. The whole office around one counter, finally having fun together.
               </p>
               <a
-                href="#waitlist"
+                href="#inquire"
                 className="text-sm tracking-wide text-gold group-hover:underline"
               >
-                Join Waitlist &rarr;
+                Inquire &rarr;
               </a>
             </div>
             <div className="border border-border p-8">
@@ -415,16 +415,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Waitlist Section */}
-      <section id="waitlist" className="py-32 px-6">
+      {/* Inquiry Section */}
+      <section id="inquire" className="py-32 px-6">
         <div className="max-w-xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
               Get Started
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl mb-4">Get on the list</h2>
+            <h2 className="font-serif text-4xl md:text-5xl mb-4">Tell us about your event</h2>
             <p className="text-muted">
-              We&apos;re booking our first season now. Tell us about your event.
+              We&apos;ll get back to you within 24 hours.
             </p>
           </div>
 
@@ -512,13 +512,13 @@ export default function Home() {
                 type="submit"
                 className="w-full bg-dark text-cream py-4 text-sm tracking-wide hover:bg-forest transition-colors"
               >
-                Get on the list
+                Submit Inquiry
               </button>
             </form>
           ) : (
             <div className="text-center py-12">
-              <p className="font-serif text-2xl mb-4">You&apos;re in.</p>
-              <p className="text-muted">We&apos;ll be in touch.</p>
+              <p className="font-serif text-2xl mb-4">Thanks!</p>
+              <p className="text-muted">We&apos;ll be in touch within 24 hours.</p>
             </div>
           )}
         </div>
