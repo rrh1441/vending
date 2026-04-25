@@ -120,19 +120,19 @@ export default function Home() {
   return (
     <main>
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#2596be] backdrop-blur-sm border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="#">
             <img src="/salishlogo.png" alt="Salish Trading Co." className="h-10" />
           </a>
           <div className="hidden md:flex gap-8 text-sm">
-            <a href="#how-it-works" className="text-white/80 hover:text-white transition-colors">
+            <a href="#how-it-works" className="text-muted hover:text-dark transition-colors">
               How It Works
             </a>
-            <a href="#events" className="text-white/80 hover:text-white transition-colors">
+            <a href="#events" className="text-muted hover:text-dark transition-colors">
               Events
             </a>
-            <a href="#waitlist" className="text-white/80 hover:text-white transition-colors">
+            <a href="#waitlist" className="text-muted hover:text-dark transition-colors">
               Waitlist
             </a>
           </div>
