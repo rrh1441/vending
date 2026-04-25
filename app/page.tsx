@@ -122,8 +122,8 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#" className="font-serif text-xl tracking-tight">
-            Salish <span className="text-gold">Trading Co.</span>
+          <a href="#">
+            <img src="/salishlogo.png" alt="Salish Trading Co." className="h-10" />
           </a>
           <div className="hidden md:flex gap-8 text-sm">
             <a href="#how-it-works" className="text-muted hover:text-dark transition-colors">
@@ -528,13 +528,11 @@ export default function Home() {
       <footer className="py-12 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
-            <p className="font-serif text-lg">
-              Salish <span className="text-gold">Trading Co.</span>
-            </p>
-            <p className="text-sm text-muted">Seattle, WA</p>
+            <img src="/salishlogo.png" alt="Salish Trading Co." className="h-8" />
+            <p className="text-sm text-muted mt-2">Seattle, WA</p>
           </div>
           <p className="text-sm text-muted">
-            &copy; 2026 Salish Trading Co.. All rights reserved.
+            &copy; 2026 Salish Trading Co. All rights reserved.
           </p>
         </div>
       </footer>
