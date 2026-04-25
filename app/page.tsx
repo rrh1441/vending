@@ -400,7 +400,7 @@ export default function Home() {
               {
                 step: "04",
                 title: "They rip",
-                description: "Guests line up, pick a pack, open it with the packtender, and go home with real cards.",
+                description: "Guests line up, pick a pack, rip it open, and go home with real cards.",
               },
             ].map((item, i) => (
               <div key={i} className="text-center">

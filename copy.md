@@ -45,7 +45,7 @@ No cost to the guest. No prices visible. Just the pop of foil wrappers, the thri
 1. **Book** — Tell us about your event. We design the setup around your venue and guest count.
 2. **Choose your packs** — Modern sets, premium vintage, or a mix. Everything sealed and authenticated.
 3. **We show up** — Counter, lighting, staff, supplies, teardown. You don't lift a thing.
-4. **They rip** — Guests line up, pick a pack, open it with the packtender, and go home with real cards.
+4. **They rip** — Guests line up, pick a pack, rip it open, and go home with real cards.
 
 ---
 
