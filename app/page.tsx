@@ -83,7 +83,7 @@ function TradingCard({
         {/* Type badge */}
         <div className="px-3 mt-2">
           <span
-            className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full text-white font-medium"
+            className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full text-[#f5f4e1] font-medium"
             style={{ backgroundColor: colors.accent }}
           >
             {type}
