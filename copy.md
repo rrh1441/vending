@@ -1,4 +1,4 @@
-# Cascadia Cards — Final Copy
+# Ranier Cards — Final Copy
 
 ## Navigation
 - How It Works
@@ -105,6 +105,6 @@ Automated pack-ripping stations for game stores and entertainment venues.
 
 ## Footer
 
-Cascadia Cards
+Ranier Cards
 Seattle, WA
-© 2026 Cascadia Cards. All rights reserved.
+© 2026 Ranier Cards. All rights reserved.
