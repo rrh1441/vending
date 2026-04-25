@@ -4,12 +4,12 @@
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 
-  --color-cream: #FAF8F5;
-  --color-dark: #141414;
-  --color-muted: #6B6B6B;
-  --color-border: #E5E5E5;
-  --color-gold: #B8956E;
-  --color-forest: #1B3D2F;
+  --color-cream: #F7F9FA;
+  --color-dark: #0F2A3D;
+  --color-muted: #5A6B75;
+  --color-border: #D1D9DE;
+  --color-gold: #2D5A47;
+  --color-forest: #1A3F5C;
 }
 
 ::selection {

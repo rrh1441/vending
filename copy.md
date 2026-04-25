@@ -1,4 +1,4 @@
-# Ranier Cards — Final Copy
+# Salish Trading Co. — Final Copy
 
 ## Navigation
 - How It Works
@@ -105,6 +105,6 @@ Automated pack-ripping stations for game stores and entertainment venues.
 
 ## Footer
 
-Ranier Cards
+Salish Trading Co.
 Seattle, WA
-© 2026 Ranier Cards. All rights reserved.
+© 2026 Salish Trading Co.. All rights reserved.

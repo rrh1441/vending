@@ -13,7 +13,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Ranier Cards | Premium Card Bar Experience",
+  title: "Salish Trading Co. | An Open Bar for Trading Cards",
   description: "A curated, staffed card bar that turns any event into an unforgettable experience. Weddings, Bar Mitzvahs, Sweet 16s, and more.",
 };
 
