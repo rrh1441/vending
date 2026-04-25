@@ -120,7 +120,7 @@ export default function Home() {
   return (
     <main>
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#f5f4e1]/90 backdrop-blur-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="#">
             <img src="/salishlogo.png" alt="Salish Trading Co." className="h-10" />
