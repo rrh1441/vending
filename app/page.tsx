@@ -446,15 +446,15 @@ export default function Home() {
       {/* Inquiry Section */}
       <section id="inquire" className="py-32 px-6">
         <div className="max-w-xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
-              Inquire
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl">Tell us about your event</h2>
-          </div>
-
-          {!formSubmitted ? (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            {!formSubmitted ? (
+            <>
+              <div className="text-center mb-12">
+                <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
+                  Inquire
+                </p>
+                <h2 className="font-serif text-4xl md:text-5xl">Tell us about your event</h2>
+              </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm mb-2">
                   Name
@@ -549,11 +549,12 @@ export default function Home() {
               >
                 {isSubmitting ? "Submitting..." : "Submit Inquiry"}
               </button>
-            </form>
+              </form>
+            </>
           ) : (
             <div className="text-center py-12">
-              <p className="font-serif text-2xl mb-4">Thanks!</p>
-              <p className="text-muted">We&apos;ll be in touch within 24 hours.</p>
+              <p className="font-serif text-3xl mb-2">You&apos;re in.</p>
+              <p className="text-muted">We&apos;ll be in touch soon.</p>
             </div>
           )}
         </div>
