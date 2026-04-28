@@ -8,8 +8,8 @@ export async function POST(request: Request) {
     const { name, email, eventType, date, guests, message } = body;
 
     const { error } = await resend.emails.send({
-      from: "Salish Trading Co. <hello@salishtrading.co>",
-      to: "ryan@salishtrading.co",
+      from: "Salish Trading Co. <hello@salishtrading.com>",
+      to: "ryan@salishtrading.com",
       subject: `New Inquiry: ${eventType} from ${name}`,
       html: `
         <h2>New Event Inquiry</h2>
