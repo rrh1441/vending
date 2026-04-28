@@ -14,7 +14,10 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Salish Trading Co. | An Open Bar for Trading Cards",
-  description: "A curated, staffed card bar that turns any event into an unforgettable experience. Weddings, Bar Mitzvahs, Sweet 16s, and more.",
+  description: "A curated, hosted card bar that turns any event into an unforgettable experience. Weddings, Bar Mitzvahs, Sweet 16s, and more.",
+  icons: {
+    icon: "/salishfav.png",
+  },
 };
 
 export default function RootLayout({

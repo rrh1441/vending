@@ -111,10 +111,38 @@ function TradingCard({
 
 export default function Home() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      eventType: formData.get("eventType"),
+      date: formData.get("date"),
+      guests: formData.get("guests"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) throw new Error("Failed to submit");
+      setFormSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -395,7 +423,7 @@ export default function Home() {
               {
                 step: "03",
                 title: "We show up",
-                description: "Counter, lighting, staff, supplies, teardown. You don't lift a thing.",
+                description: "Counter, lighting, a dedicated host, supplies, teardown. You don't lift a thing.",
               },
               {
                 step: "04",
@@ -420,12 +448,9 @@ export default function Home() {
         <div className="max-w-xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
-              Get Started
+              Inquire
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl mb-4">Tell us about your event</h2>
-            <p className="text-muted">
-              We&apos;ll get back to you within 24 hours.
-            </p>
+            <h2 className="font-serif text-4xl md:text-5xl">Tell us about your event</h2>
           </div>
 
           {!formSubmitted ? (
@@ -437,6 +462,7 @@ export default function Home() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   required
                   className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors"
                   placeholder="Your name"
@@ -449,6 +475,7 @@ export default function Home() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   required
                   className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors"
                   placeholder="you@example.com"
@@ -460,6 +487,7 @@ export default function Home() {
                 </label>
                 <select
                   id="eventType"
+                  name="eventType"
                   required
                   className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors"
                 >
@@ -479,6 +507,7 @@ export default function Home() {
                 <input
                   type="date"
                   id="date"
+                  name="date"
                   className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors"
                 />
               </div>
@@ -488,6 +517,7 @@ export default function Home() {
                 </label>
                 <select
                   id="guests"
+                  name="guests"
                   className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors"
                 >
                   <option value="">Select...</option>
@@ -503,16 +533,21 @@ export default function Home() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={3}
                   className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors resize-none"
                   placeholder="Tell us about your event..."
                 />
               </div>
+              {error && (
+                <p className="text-red-600 text-sm">{error}</p>
+              )}
               <button
                 type="submit"
-                className="w-full bg-dark text-cream py-4 text-sm tracking-wide hover:bg-forest transition-colors"
+                disabled={isSubmitting}
+                className="w-full bg-dark text-cream py-4 text-sm tracking-wide hover:bg-forest transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Submit Inquiry
+                {isSubmitting ? "Submitting..." : "Submit Inquiry"}
               </button>
             </form>
           ) : (

@@ -1,0 +1,107 @@
+[
+  {
+    "slug": "seattle",
+    "name": "Seattle",
+    "region": "Seattle",
+    "area": "Seattle, WA",
+    "neighborhoods": ["Capitol Hill", "Ballard", "Fremont", "Queen Anne", "South Lake Union"]
+  },
+  {
+    "slug": "bellevue",
+    "name": "Bellevue",
+    "region": "Eastside",
+    "area": "Bellevue, WA",
+    "neighborhoods": ["Downtown Bellevue", "Crossroads", "Factoria"]
+  },
+  {
+    "slug": "kirkland",
+    "name": "Kirkland",
+    "region": "Eastside",
+    "area": "Kirkland, WA",
+    "neighborhoods": ["Downtown Kirkland", "Juanita", "Totem Lake"]
+  },
+  {
+    "slug": "redmond",
+    "name": "Redmond",
+    "region": "Eastside",
+    "area": "Redmond, WA",
+    "neighborhoods": ["Downtown Redmond", "Overlake", "Education Hill"]
+  },
+  {
+    "slug": "bothell",
+    "name": "Bothell",
+    "region": "Eastside",
+    "area": "Bothell, WA",
+    "neighborhoods": ["Downtown Bothell", "Canyon Park"]
+  },
+  {
+    "slug": "issaquah",
+    "name": "Issaquah",
+    "region": "Eastside",
+    "area": "Issaquah, WA",
+    "neighborhoods": ["Historic Downtown", "Issaquah Highlands", "Gilman Village"]
+  },
+  {
+    "slug": "woodinville",
+    "name": "Woodinville",
+    "region": "Eastside",
+    "area": "Woodinville, WA",
+    "neighborhoods": ["Wine Country", "Downtown Woodinville"]
+  },
+  {
+    "slug": "mercer-island",
+    "name": "Mercer Island",
+    "region": "Eastside",
+    "area": "Mercer Island, WA",
+    "neighborhoods": ["Town Center", "East Mercer"]
+  },
+  {
+    "slug": "sammamish",
+    "name": "Sammamish",
+    "region": "Eastside",
+    "area": "Sammamish, WA",
+    "neighborhoods": ["Sammamish Town Center", "Pine Lake"]
+  },
+  {
+    "slug": "renton",
+    "name": "Renton",
+    "region": "South King County",
+    "area": "Renton, WA",
+    "neighborhoods": ["Downtown Renton", "The Landing", "Kennydale"]
+  },
+  {
+    "slug": "tacoma",
+    "name": "Tacoma",
+    "region": "Pierce County",
+    "area": "Tacoma, WA",
+    "neighborhoods": ["Stadium District", "Proctor", "Ruston"]
+  },
+  {
+    "slug": "everett",
+    "name": "Everett",
+    "region": "Snohomish County",
+    "area": "Everett, WA",
+    "neighborhoods": ["Downtown Everett", "Port Gardner"]
+  },
+  {
+    "slug": "lynnwood",
+    "name": "Lynnwood",
+    "region": "Snohomish County",
+    "area": "Lynnwood, WA",
+    "neighborhoods": ["City Center", "Alderwood"]
+  },
+  {
+    "slug": "shoreline",
+    "name": "Shoreline",
+    "region": "North King County",
+    "area": "Shoreline, WA",
+    "neighborhoods": ["Ridgecrest", "Richmond Beach"]
+  },
+  {
+    "slug": "burien",
+    "name": "Burien",
+    "region": "South King County",
+    "area": "Burien, WA",
+    "neighborhoods": ["Downtown Burien", "Boulevard Park"]
+  }
+]

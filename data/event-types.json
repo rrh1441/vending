@@ -1,0 +1,138 @@
+[
+  {
+    "slug": "wedding-entertainment",
+    "eventType": "wedding",
+    "angle": "entertainment",
+    "displayName": "Wedding Entertainment",
+    "shortName": "Weddings",
+    "description": "Unique wedding entertainment that brings every generation together"
+  },
+  {
+    "slug": "wedding-ideas",
+    "eventType": "wedding",
+    "angle": "ideas",
+    "displayName": "Wedding Ideas",
+    "shortName": "Weddings",
+    "description": "Creative wedding ideas your guests will actually remember"
+  },
+  {
+    "slug": "unique-wedding-entertainment",
+    "eventType": "wedding",
+    "angle": "unique",
+    "displayName": "Unique Wedding Entertainment",
+    "shortName": "Weddings",
+    "description": "Stand out from every wedding your guests have ever attended"
+  },
+  {
+    "slug": "wedding-reception-ideas",
+    "eventType": "wedding",
+    "angle": "reception",
+    "displayName": "Wedding Reception Ideas",
+    "shortName": "Weddings",
+    "description": "Reception entertainment that gets guests mingling and talking"
+  },
+  {
+    "slug": "photo-booth-alternative",
+    "eventType": "wedding",
+    "angle": "alternative",
+    "displayName": "Photo Booth Alternative",
+    "shortName": "Photo Booth Alternative",
+    "description": "Skip the photo booth — give your guests something they'll actually remember"
+  },
+  {
+    "slug": "bar-mitzvah-entertainment",
+    "eventType": "bar-mitzvah",
+    "angle": "entertainment",
+    "displayName": "Bar Mitzvah Entertainment",
+    "shortName": "Bar Mitzvahs",
+    "description": "Entertainment the kids will love and the adults will fight for a turn at"
+  },
+  {
+    "slug": "bar-mitzvah-ideas",
+    "eventType": "bar-mitzvah",
+    "angle": "ideas",
+    "displayName": "Bar Mitzvah Ideas",
+    "shortName": "Bar Mitzvahs",
+    "description": "Bar mitzvah party ideas that stand out from every other celebration"
+  },
+  {
+    "slug": "bat-mitzvah-entertainment",
+    "eventType": "bat-mitzvah",
+    "angle": "entertainment",
+    "displayName": "Bat Mitzvah Entertainment",
+    "shortName": "Bat Mitzvahs",
+    "description": "Entertainment that makes the celebration unforgettable"
+  },
+  {
+    "slug": "bat-mitzvah-ideas",
+    "eventType": "bat-mitzvah",
+    "angle": "ideas",
+    "displayName": "Bat Mitzvah Ideas",
+    "shortName": "Bat Mitzvahs",
+    "description": "Creative bat mitzvah ideas your guests will talk about for years"
+  },
+  {
+    "slug": "sweet-16-entertainment",
+    "eventType": "sweet-16",
+    "angle": "entertainment",
+    "displayName": "Sweet 16 Entertainment",
+    "shortName": "Sweet 16s",
+    "description": "Give them the party their whole feed will be posting from"
+  },
+  {
+    "slug": "sweet-16-ideas",
+    "eventType": "sweet-16",
+    "angle": "ideas",
+    "displayName": "Sweet 16 Ideas",
+    "shortName": "Sweet 16s",
+    "description": "Sweet 16 party ideas that actually excite teenagers"
+  },
+  {
+    "slug": "unique-sweet-16-ideas",
+    "eventType": "sweet-16",
+    "angle": "unique",
+    "displayName": "Unique Sweet 16 Ideas",
+    "shortName": "Sweet 16s",
+    "description": "Stand out with a Sweet 16 unlike anything they've seen"
+  },
+  {
+    "slug": "corporate-event-entertainment",
+    "eventType": "corporate",
+    "angle": "entertainment",
+    "displayName": "Corporate Event Entertainment",
+    "shortName": "Corporate Events",
+    "description": "Team building that doesn't feel forced"
+  },
+  {
+    "slug": "corporate-party-ideas",
+    "eventType": "corporate",
+    "angle": "ideas",
+    "displayName": "Corporate Party Ideas",
+    "shortName": "Corporate Events",
+    "description": "Company event ideas that get everyone talking"
+  },
+  {
+    "slug": "team-building-activities",
+    "eventType": "corporate",
+    "angle": "team-building",
+    "displayName": "Team Building Activities",
+    "shortName": "Team Building",
+    "description": "The whole office around one counter, finally having fun together"
+  },
+  {
+    "slug": "birthday-party-entertainment",
+    "eventType": "birthday",
+    "angle": "entertainment",
+    "displayName": "Birthday Party Entertainment",
+    "shortName": "Birthdays",
+    "description": "Birthday entertainment for kids and adults alike"
+  },
+  {
+    "slug": "birthday-party-ideas",
+    "eventType": "birthday",
+    "angle": "ideas",
+    "displayName": "Birthday Party Ideas",
+    "shortName": "Birthdays",
+    "description": "Unique birthday party ideas that guests will actually remember"
+  }
+]
