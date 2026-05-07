@@ -7,6 +7,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, email, eventType, date, guests, message } = body;
 
+    // Send notification to you
     const { error } = await resend.emails.send({
       from: "Salish Trading Co. <hello@salishtrading.com>",
       to: "ryan@salishtrading.com",
@@ -26,6 +27,19 @@ export async function POST(request: Request) {
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
+
+    // Send confirmation to submitter
+    await resend.emails.send({
+      from: "Salish Trading Co. <hello@salishtrading.com>",
+      to: email,
+      subject: "We got your inquiry!",
+      html: `
+        <h2>Thanks for reaching out, ${name}!</h2>
+        <p>We received your inquiry about a ${eventType} and will be in touch soon.</p>
+        <p>In the meantime, feel free to reply to this email if you have any questions.</p>
+        <p>— The Salish Trading Co. team</p>
+      `,
+    });
 
     return NextResponse.json({ success: true });
   } catch (error) {
