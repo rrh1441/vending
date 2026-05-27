@@ -9,21 +9,21 @@ interface FAQItem {
 
 interface FAQProps {
   faqs: FAQItem[];
-  location: string;
+  subtitle?: string;
 }
 
-export default function FAQ({ faqs, location }: FAQProps) {
+export default function FAQ({ faqs, subtitle }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 px-6">
+    <section id="faq" className="py-24 px-6">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
             FAQ
           </p>
           <h2 className="font-serif text-3xl md:text-4xl">
-            Common questions about events in {location}
+            {subtitle ?? "Questions hosts ask"}
           </h2>
         </div>
 

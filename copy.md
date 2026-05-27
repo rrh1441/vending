@@ -1,9 +1,13 @@
 # Salish Trading Co. — Final Copy
 
+> Host-acquisition model. The visitor we're converting is a venue owner/manager,
+> not a consumer. We place sealed trading-card vending machines into adult,
+> high-traffic venues; the venue hosts the machine and earns passive income.
+
 ## Navigation
 - How It Works
-- Events
-- Waitlist
+- Where It Fits
+- Host Waitlist
 
 ---
 
@@ -11,95 +15,110 @@
 
 **Tagline:** Seattle, WA
 
-**Headline:** An open bar for trading cards.
+**Headline:** Passive income from a few square feet.
 
-**Description:** A counter stacked with sealed Pokémon packs at your wedding, bar mitzvah, or celebration. Guests walk up, pick a pack, rip it open, and keep whatever they pull.
+**Description:** A sealed trading-card vending machine in your bar — we own it, stock it, and service it. You give it a corner and an outlet, and earn a cut of every sale.
 
 **CTAs:**
-- Join the Waitlist
-- See How It Works
+- Join the Host Waitlist
+- How it works
 
 ---
 
-## Experience Section
+## Why Host One
 
-**Label:** The Experience
+**Label:** Why host one
 
-**Headline:** Think open bar. But for Pokémon cards.
+**Headline:** Found money in the corner of a room you already have.
 
-**Body:**
-Guests line up. They pick a pack. They rip it open. The whole room watches. Someone pulls a holographic Charizard and doesn't know what they're holding until everyone loses their mind.
-
-The bride rips a 1999 base set pack. A grandfather pulls a rare card and suddenly he's the center of attention. Kids and adults end up at the same counter for the first time all night — all of them excited about the same thing.
-
-No cost to the guest. No prices visible. Just the pop of foil wrappers, the thrill of the pull, and stories they'll be telling for years.
+- **Passive income** — Earn a cut of every sale with zero cost and zero work. The machine runs itself; the money is hands-off.
+- **A built-in draw** — A sealed-pack machine pulls people in and gives your regulars one more reason to stay and spend.
+- **Tiny footprint** — About 2 ft × 2 ft against a wall or in a corner. All it needs from you is a standard outlet.
+- **Fully hands-off** — We own, stock, service, insure, and run the payments. You never touch the hardware or the cash.
+- **Risk-free** — The machine is small and mobile. If a spot doesn't perform, we relocate it — no obligation on you.
+- **Your split, your call** — Take a 10–20% revenue share or a flat $100–$300 monthly rent. Whichever suits your venue.
 
 ---
 
-## How It Works Section
+## How It Works
 
 **Label:** Process
 
 **Headline:** How it works
 
-1. **Book** — Tell us about your event. We design the setup around your venue and guest count.
-2. **Choose your packs** — Modern sets, premium vintage, or a mix. Everything sealed and authenticated.
-3. **We show up** — Counter, lighting, staff, supplies, teardown. You don't lift a thing.
-4. **They rip** — Guests line up, pick a pack, rip it open, and go home with real cards.
+1. **You host** — Give the machine a few square feet and an outlet. That's the whole ask.
+2. **We install & run it** — We deliver it, stock genuine sealed packs, service it, insure it, and run the payments.
+3. **You earn** — Revenue share or flat monthly rent, your choice, on every sale.
+4. **We handle the rest** — Restocking, maintenance, payments, insurance. If a spot underperforms, we move it.
 
 ---
 
-## Events Section
+## What It Is
 
-**Label:** Events
+**Label:** What it is
 
-**Headline:** Built for the nights that matter
+**Headline:** A small machine, genuine sealed product.
 
-### Event Cards:
+**Body:**
+A compact sealed-pack vending unit — about 2 ft × 2 ft of floor, roughly 5.9 ft tall, around 35 lbs. It sits against a wall or on a stand and runs off a standard outlet.
 
-**Weddings**
-The reception moment that brings every generation to the same counter. Uncles and nieces, new in-laws, the friend who didn't know anyone — suddenly they're all talking.
-→ Join Waitlist
+It dispenses genuine sealed collectible trading-card packs — a popular impulse buy that draws a crowd. Cashless payments throughout. We keep it stocked and serviced; you keep your floor space earning.
 
-**Bar & Bat Mitzvahs**
-A centerpiece the kids will actually remember, and one the adults will fight for a turn at.
-→ Join Waitlist
-
-**Sweet 16s**
-Forget the photo booth. Give them the party their whole feed will be posting from.
-→ Join Waitlist
-
-**Company Events**
-Team building that doesn't feel forced. The whole office around one counter, finally having fun together.
-→ Join Waitlist
-
-**Fairs & Festivals**
-Crowd-drawing, memory-making, and impossible to walk past.
-→ Stay tuned for dates
-
-**Retail & Vending**
-Automated pack-ripping stations for game stores and entertainment venues.
-→ Coming soon
+**Specs:** Footprint ~2 × 2 ft · Height ~5.9 ft · Weight ~35 lbs
 
 ---
 
-## Waitlist Section
+## Where It Fits
 
-**Label:** Get Started
+**Label:** Where it fits
 
-**Headline:** Get on the list
+**Headline:** Built for adult, high-dwell spots
 
-**Description:** We're booking our first season now. Tell us about your event.
+**Body:** The buyer is an adult with disposable income and nostalgia for the hobby — so we place machines where those people already linger.
+
+### Venue types:
+- **Barcades** — Arcade bars where adults already linger between games — prime dwell time for an impulse pull.
+- **Breweries & Taprooms** — Taprooms full of regulars with time on their hands and a little money to spend.
+- **Dive Bars** — Neighborhood bars where a card machine becomes a conversation piece and a draw.
+- **Pool Halls** — Long sessions, repeat visits, and a crowd that loves a little side action.
+- **Tattoo Parlors** — Clients waiting and sitting for hours — the perfect captive, collectible-minded audience.
+
+---
+
+## FAQ
+
+**What's the catch?** There isn't one. We own the machine, stock it, service it, insure it, and run the payments. You provide a few square feet and an outlet, and take a cut of every sale. You never touch the hardware.
+
+**How much will I make?** It depends on your foot traffic, so we only give ranges — never a guarantee. Most hosts choose a 10–20% revenue share or a flat $100–$300 per month. We'll talk through what fits your spot.
+
+**How much room does it take?** Very little — about 2 ft × 2 ft of floor, roughly 5.9 ft tall, around 35 lbs. It tucks into a corner or against a wall and runs off a standard outlet.
+
+**Is this official Pokémon or Nintendo?** No. Salish Trading Co. is an independent operator and is not affiliated with or endorsed by The Pokémon Company or Nintendo. We stock genuine sealed collectible trading-card packs.
+
+**Who services and stocks it?** We do — entirely. Restocking, maintenance, the payment hardware, and insurance are all on us. It's fully hands-off for you.
+
+**What does it cost me?** Nothing. There's no cost and no work on your end. If a location underperforms, we relocate the machine, so hosting is genuinely risk-free.
+
+---
+
+## Host Waitlist
+
+**Label:** Founding Hosts
+
+**Headline:** Join the host waitlist
+
+**Description:** We're selecting founding-host locations in Seattle now — early spots get priority. No cost, no commitment.
 
 **Form Fields:**
-- Name
+- Business name
+- Venue type (Barcade / Brewery or Taproom / Dive bar / Pool hall / Tattoo parlor / Other)
+- Neighborhood
+- Contact name
 - Email
-- Event type (Wedding, Bar/Bat Mitzvah, Sweet 16, Birthday, Corporate, Other)
-- Approximate date
-- Guest count (Under 50, 50–100, 100–200, 200+)
-- Anything else we should know (optional)
+- Phone (optional)
+- Anything else (optional)
 
-**Success Message:** You're in. We'll be in touch.
+**Success Message:** You're on the founding-host list. We'll be in touch.
 
 ---
 
@@ -107,4 +126,5 @@ Automated pack-ripping stations for game stores and entertainment venues.
 
 Salish Trading Co.
 Seattle, WA
-© 2026 Salish Trading Co.. All rights reserved.
+Independent operator. Not affiliated with or endorsed by The Pokémon Company or Nintendo.
+© 2026 Salish Trading Co. All rights reserved.

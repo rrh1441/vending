@@ -1,0 +1,17 @@
+[
+  { "slug": "capitol-hill", "name": "Capitol Hill" },
+  { "slug": "ballard", "name": "Ballard" },
+  { "slug": "fremont", "name": "Fremont" },
+  { "slug": "queen-anne", "name": "Queen Anne" },
+  { "slug": "south-lake-union", "name": "South Lake Union" },
+  { "slug": "wallingford", "name": "Wallingford" },
+  { "slug": "greenwood", "name": "Greenwood" },
+  { "slug": "georgetown", "name": "Georgetown" },
+  { "slug": "columbia-city", "name": "Columbia City" },
+  { "slug": "west-seattle", "name": "West Seattle" },
+  { "slug": "university-district", "name": "University District" },
+  { "slug": "belltown", "name": "Belltown" },
+  { "slug": "pioneer-square", "name": "Pioneer Square" },
+  { "slug": "beacon-hill", "name": "Beacon Hill" },
+  { "slug": "ravenna", "name": "Ravenna" }
+]

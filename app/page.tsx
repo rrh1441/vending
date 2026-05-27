@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import FAQ from "@/app/components/FAQ";
+import { venueTypes } from "@/app/lib/seo-data";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -16,7 +18,7 @@ const stagger = {
   },
 };
 
-// Card component for the hero
+// Decorative hero card — fictional, Salish-branded (not Pokémon/Nintendo IP).
 function TradingCard({
   name,
   type,
@@ -62,25 +64,17 @@ function TradingCard({
       className={`relative w-48 h-68 rounded-xl shadow-2xl overflow-hidden ${className}`}
       style={style}
     >
-      {/* Card background */}
       <div className={`absolute inset-0 bg-gradient-to-br ${colors.bg}`} />
-
-      {/* Card frame */}
       <div className="absolute inset-2 bg-cream/95 rounded-lg flex flex-col">
-        {/* Header */}
         <div className="flex justify-between items-center px-3 pt-2">
           <span className="font-serif font-bold text-sm text-dark">{name}</span>
           <span className="text-xs font-bold" style={{ color: colors.accent }}>
             {hp} HP
           </span>
         </div>
-
-        {/* Image area */}
         <div className={`mx-3 mt-1 h-24 rounded bg-gradient-to-br ${colors.bg} flex items-center justify-center ${colors.border} border-2`}>
           <span className="text-4xl">{colors.icon}</span>
         </div>
-
-        {/* Type badge */}
         <div className="px-3 mt-2">
           <span
             className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full text-[#f5f4e1] font-medium"
@@ -89,8 +83,6 @@ function TradingCard({
             {type}
           </span>
         </div>
-
-        {/* Attack */}
         <div className="px-3 mt-2 flex-1">
           <div className="flex items-center gap-2 text-xs">
             <span style={{ color: colors.accent }}>{colors.icon}</span>
@@ -98,8 +90,6 @@ function TradingCard({
             <span className="ml-auto font-bold text-dark">{damage}</span>
           </div>
         </div>
-
-        {/* Footer */}
         <div className="px-3 pb-2 flex justify-between items-center">
           <span className="text-[8px] text-muted">Salish Trading Co.</span>
           <span className="text-[10px] text-gold">★★★</span>
@@ -108,6 +98,89 @@ function TradingCard({
     </div>
   );
 }
+
+const benefits = [
+  {
+    title: "Passive income",
+    body: "Earn a cut of every sale with zero cost and zero work. The machine runs itself; the money is hands-off.",
+  },
+  {
+    title: "A built-in draw",
+    body: "A sealed-pack machine pulls people in and gives your regulars one more reason to stay and spend.",
+  },
+  {
+    title: "Tiny footprint",
+    body: "About 2 ft × 2 ft against a wall or in a corner. All it needs from you is a standard outlet.",
+  },
+  {
+    title: "Fully hands-off",
+    body: "We own, stock, service, insure, and run the payments. You never touch the hardware or the cash.",
+  },
+  {
+    title: "Risk-free",
+    body: "The machine is small and mobile. If a spot doesn't perform, we relocate it — no obligation on you.",
+  },
+  {
+    title: "Your split, your call",
+    body: "Take a 10–20% revenue share or a flat $100–$300 monthly rent. Whichever suits your venue.",
+  },
+];
+
+const steps = [
+  {
+    step: "01",
+    title: "You host",
+    body: "Give the machine a few square feet and an outlet. That's the whole ask.",
+  },
+  {
+    step: "02",
+    title: "We install & run it",
+    body: "We deliver it, stock genuine sealed packs, service it, insure it, and run the payments.",
+  },
+  {
+    step: "03",
+    title: "You earn",
+    body: "Revenue share or flat monthly rent — your choice — on every sale.",
+  },
+  {
+    step: "04",
+    title: "We handle the rest",
+    body: "Restocking, maintenance, payments, insurance. If a spot underperforms, we move it.",
+  },
+];
+
+const faqs = [
+  {
+    question: "What's the catch?",
+    answer:
+      "There isn't one. We own the machine, stock it, service it, insure it, and run the payments. You provide a few square feet and an outlet, and take a cut of every sale. You never touch the hardware.",
+  },
+  {
+    question: "How much will I make?",
+    answer:
+      "It depends on your foot traffic, so we only give ranges — never a guarantee. Most hosts choose a 10–20% revenue share or a flat $100–$300 per month. We'll talk through what fits your spot.",
+  },
+  {
+    question: "How much room does it take?",
+    answer:
+      "Very little — about 2 ft × 2 ft of floor, roughly 5.9 ft tall, around 35 lbs. It tucks into a corner or against a wall and runs off a standard outlet.",
+  },
+  {
+    question: "Is this official Pokémon or Nintendo?",
+    answer:
+      "No. Salish Trading Co. is an independent operator and is not affiliated with or endorsed by The Pokémon Company or Nintendo. We stock genuine sealed collectible trading-card packs.",
+  },
+  {
+    question: "Who services and stocks it?",
+    answer:
+      "We do — entirely. Restocking, maintenance, the payment hardware, and insurance are all on us. It's fully hands-off for you.",
+  },
+  {
+    question: "What does it cost me?",
+    answer:
+      "Nothing. There's no cost and no work on your end. If a location underperforms, we relocate the machine, so hosting is genuinely risk-free.",
+  },
+];
 
 export default function Home() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -121,12 +194,13 @@ export default function Home() {
 
     const formData = new FormData(e.currentTarget);
     const data = {
-      name: formData.get("name"),
+      businessName: formData.get("businessName"),
+      venueType: formData.get("venueType"),
+      neighborhood: formData.get("neighborhood"),
+      contactName: formData.get("contactName"),
       email: formData.get("email"),
-      eventType: formData.get("eventType"),
-      date: formData.get("date"),
-      guests: formData.get("guests"),
-      message: formData.get("message"),
+      phone: formData.get("phone"),
+      notes: formData.get("notes"),
     };
 
     try {
@@ -157,11 +231,11 @@ export default function Home() {
             <a href="#how-it-works" className="text-muted hover:text-dark transition-colors">
               How It Works
             </a>
-            <a href="#events" className="text-muted hover:text-dark transition-colors">
-              Events
+            <a href="#where-it-fits" className="text-muted hover:text-dark transition-colors">
+              Where It Fits
             </a>
-            <a href="#inquire" className="text-muted hover:text-dark transition-colors">
-              Inquire
+            <a href="#waitlist" className="text-muted hover:text-dark transition-colors">
+              Host Waitlist
             </a>
           </div>
         </div>
@@ -188,28 +262,30 @@ export default function Home() {
                 variants={fadeIn}
                 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight"
               >
-                An open bar
+                Passive income
                 <br />
-                <span className="italic">for trading cards.</span>
+                <span className="italic">from a few square feet.</span>
               </motion.h1>
               <motion.p
                 variants={fadeIn}
                 className="text-lg md:text-xl text-muted max-w-xl leading-relaxed"
               >
-                A counter stacked with sealed Pokémon packs at your wedding, bar mitzvah, or celebration. Guests walk up, pick a pack, rip it open, and keep whatever they pull.
+                A sealed trading-card vending machine in your bar — we own it, stock it,
+                and service it. You give it a corner and an outlet, and earn a cut of
+                every sale.
               </motion.p>
               <motion.div variants={fadeIn} className="flex flex-wrap gap-4 pt-4">
                 <a
-                  href="#inquire"
+                  href="#waitlist"
                   className="bg-dark text-cream px-8 py-4 text-sm tracking-wide hover:bg-forest transition-colors"
                 >
-                  Submit Inquiry
+                  Join the Host Waitlist
                 </a>
                 <a
                   href="#how-it-works"
                   className="border border-dark px-8 py-4 text-sm tracking-wide hover:bg-dark hover:text-cream transition-colors"
                 >
-                  See How It Works
+                  How it works
                 </a>
               </motion.div>
             </motion.div>
@@ -221,7 +297,6 @@ export default function Home() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="relative h-[400px] lg:h-[500px] flex items-center justify-center"
             >
-              {/* Cards fanned out */}
               <motion.div
                 initial={{ rotate: -15, y: 20 }}
                 animate={{ rotate: -15, y: 0 }}
@@ -267,7 +342,6 @@ export default function Home() {
                 />
               </motion.div>
 
-              {/* Glow effect behind cards */}
               <div className="absolute inset-0 bg-gradient-radial from-gold/20 via-transparent to-transparent rounded-full blur-3xl" />
             </motion.div>
           </div>
@@ -289,116 +363,31 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="py-32 px-6 bg-dark text-cream">
+      {/* Why host one */}
+      <section id="why-host" className="py-32 px-6 bg-dark text-cream">
         <div className="max-w-6xl mx-auto">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mb-16">
             <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
-              The Experience
+              Why host one
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
-              Think open bar.
+            <h2 className="font-serif text-4xl md:text-5xl leading-tight">
+              Found money in the corner
               <br />
-              <span className="italic">But for Pokémon cards.</span>
-            </h2>
-            <div className="space-y-6 text-cream/70 leading-relaxed text-lg">
-              <p>
-                Guests line up. They pick a pack. They rip it open. The whole room watches. Someone pulls a holographic Charizard and doesn&apos;t know what they&apos;re holding until everyone loses their mind.
-              </p>
-              <p>
-                The bride rips a 1999 base set pack. A grandfather pulls a rare card and suddenly he&apos;s the center of attention. Kids and adults end up at the same counter for the first time all night — all of them excited about the same thing.
-              </p>
-              <p>
-                No cost to the guest. No prices visible. Just the pop of foil wrappers, the thrill of the pull, and stories they&apos;ll be telling for years.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Events Section */}
-      <section id="events" className="py-32 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20">
-            <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
-              Events
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl">
-              Built for the nights that matter
+              <span className="italic">of a room you already have.</span>
             </h2>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Weddings",
-                description:
-                  "The reception moment that brings every generation to the same counter. Uncles and nieces, new in-laws, the friend who didn't know anyone — suddenly they're all talking.",
-                status: "waitlist",
-              },
-              {
-                title: "Bar & Bat Mitzvahs",
-                description:
-                  "A centerpiece the kids will actually remember, and one the adults will fight for a turn at.",
-                status: "waitlist",
-              },
-              {
-                title: "Sweet 16s",
-                description:
-                  "Forget the photo booth. Give them the party their whole feed will be posting from.",
-                status: "waitlist",
-              },
-            ].map((event, i) => (
-              <div
-                key={i}
-                className="border border-border p-8 hover:border-gold/50 transition-colors group"
-              >
-                <h3 className="font-serif text-2xl mb-4">{event.title}</h3>
-                <p className="text-muted leading-relaxed mb-6">{event.description}</p>
-                <a
-                  href="#inquire"
-                  className="text-sm tracking-wide text-gold group-hover:underline"
-                >
-                  Inquire &rarr;
-                </a>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {benefits.map((b) => (
+              <div key={b.title} className="border border-cream/15 p-8">
+                <h3 className="font-serif text-2xl mb-4">{b.title}</h3>
+                <p className="text-cream/60 leading-relaxed">{b.body}</p>
               </div>
             ))}
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mt-8">
-            <div className="border border-border p-8 hover:border-gold/50 transition-colors group">
-              <h3 className="font-serif text-2xl mb-4">Company Events</h3>
-              <p className="text-muted leading-relaxed mb-6">
-                Team building that doesn&apos;t feel forced. The whole office around one counter, finally having fun together.
-              </p>
-              <a
-                href="#inquire"
-                className="text-sm tracking-wide text-gold group-hover:underline"
-              >
-                Inquire &rarr;
-              </a>
-            </div>
-            <div className="border border-border p-8">
-              <h3 className="font-serif text-2xl mb-4">Fairs & Festivals</h3>
-              <p className="text-muted leading-relaxed mb-6">
-                Crowd-drawing, memory-making, and impossible to walk past.
-              </p>
-              <span className="text-sm tracking-wide text-muted">
-                Stay tuned for dates
-              </span>
-            </div>
-            <div className="border border-border p-8">
-              <h3 className="font-serif text-2xl mb-4">Retail & Vending</h3>
-              <p className="text-muted leading-relaxed mb-6">
-                Automated pack-ripping stations for game stores and entertainment venues.
-              </p>
-              <span className="text-sm tracking-wide text-muted">Coming soon</span>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* How it Works */}
+      {/* How it works */}
       <section id="how-it-works" className="py-32 px-6 bg-forest text-cream">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
@@ -409,152 +398,247 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-4 gap-12">
-            {[
-              {
-                step: "01",
-                title: "Book",
-                description: "Tell us about your event. We design the setup around your venue and guest count.",
-              },
-              {
-                step: "02",
-                title: "Choose your packs",
-                description: "Modern sets, premium vintage, or a mix. Everything sealed and authenticated.",
-              },
-              {
-                step: "03",
-                title: "We show up",
-                description: "Counter, lighting, a dedicated host, supplies, teardown. You don't lift a thing.",
-              },
-              {
-                step: "04",
-                title: "They rip",
-                description: "Guests line up, pick a pack, rip it open, and go home with real cards.",
-              },
-            ].map((item, i) => (
-              <div key={i} className="text-center">
+            {steps.map((item) => (
+              <div key={item.step} className="text-center">
                 <span className="inline-block border border-gold text-gold text-sm px-4 py-2 mb-6">
                   {item.step}
                 </span>
                 <h3 className="font-serif text-2xl mb-4">{item.title}</h3>
-                <p className="text-cream/60 leading-relaxed">{item.description}</p>
+                <p className="text-cream/60 leading-relaxed">{item.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Inquiry Section */}
-      <section id="inquire" className="py-32 px-6">
+      {/* What it is */}
+      <section id="what-it-is" className="py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
+                What it is
+              </p>
+              <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
+                A small machine,
+                <br />
+                <span className="italic">genuine sealed product.</span>
+              </h2>
+              <div className="space-y-6 text-muted leading-relaxed text-lg">
+                <p>
+                  A compact sealed-pack vending unit — about 2 ft × 2 ft of floor, roughly
+                  5.9 ft tall, around 35 lbs. It sits against a wall or on a stand and runs
+                  off a standard outlet.
+                </p>
+                <p>
+                  It dispenses genuine sealed collectible trading-card packs — a popular
+                  impulse buy that draws a crowd. Cashless payments throughout. We keep it
+                  stocked and serviced; you keep your floor space earning.
+                </p>
+              </div>
+              <dl className="grid grid-cols-3 gap-6 mt-10">
+                {[
+                  { k: "Footprint", v: "~2 × 2 ft" },
+                  { k: "Height", v: "~5.9 ft" },
+                  { k: "Weight", v: "~35 lbs" },
+                ].map((spec) => (
+                  <div key={spec.k}>
+                    <dt className="text-sm text-muted">{spec.k}</dt>
+                    <dd className="font-serif text-2xl text-dark">{spec.v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            {/* Machine illustration placeholder */}
+            <div className="relative">
+              <div className="aspect-[3/4] max-w-sm mx-auto bg-dark rounded-2xl border border-border flex flex-col overflow-hidden shadow-2xl">
+                <div className="bg-forest text-cream text-center py-4 text-sm tracking-[0.2em] uppercase">
+                  Salish Trading Co.
+                </div>
+                <div className="flex-1 grid grid-cols-3 grid-rows-4 gap-2 p-4">
+                  {Array.from({ length: 12 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="bg-cream/10 border border-cream/20 rounded flex items-center justify-center"
+                    >
+                      <span className="text-cream/30 text-xs">pack</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="bg-cream/5 border-t border-cream/15 py-4 px-4 flex items-center justify-between">
+                  <span className="text-cream/40 text-xs">tap to pay</span>
+                  <span className="text-gold text-xs">cashless</span>
+                </div>
+              </div>
+              <p className="text-center text-xs text-muted mt-4">
+                Illustration — final unit may vary.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Where it fits */}
+      <section id="where-it-fits" className="py-32 px-6 bg-cream/50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
+              Where it fits
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl mb-6">
+              Built for adult, high-dwell spots
+            </h2>
+            <p className="text-muted text-lg max-w-2xl mx-auto">
+              The buyer is an adult with disposable income and nostalgia for the hobby —
+              so we place machines where those people already linger.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {venueTypes.map((v) => (
+              <div
+                key={v.slug}
+                className="border border-border p-8 bg-[#f5f4e1] hover:border-gold/50 transition-colors"
+              >
+                <h3 className="font-serif text-2xl mb-4">{v.displayName}</h3>
+                <p className="text-muted leading-relaxed">{v.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <FAQ faqs={faqs} subtitle="Questions hosts ask" />
+
+      {/* Host Waitlist */}
+      <section id="waitlist" className="py-32 px-6 bg-dark text-cream">
         <div className="max-w-xl mx-auto">
-            {!formSubmitted ? (
+          {!formSubmitted ? (
             <>
               <div className="text-center mb-12">
                 <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
-                  Inquire
+                  Founding Hosts
                 </p>
-                <h2 className="font-serif text-4xl md:text-5xl">Tell us about your event</h2>
+                <h2 className="font-serif text-4xl md:text-5xl mb-4">
+                  Join the host waitlist
+                </h2>
+                <p className="text-cream/60">
+                  We&apos;re selecting founding-host locations in Seattle now — early spots
+                  get priority. No cost, no commitment.
+                </p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors"
-                  placeholder="you@example.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="eventType" className="block text-sm mb-2">
-                  Event type
-                </label>
-                <select
-                  id="eventType"
-                  name="eventType"
-                  required
-                  className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors"
+                <div>
+                  <label htmlFor="businessName" className="block text-sm mb-2">
+                    Business name
+                  </label>
+                  <input
+                    type="text"
+                    id="businessName"
+                    name="businessName"
+                    required
+                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors"
+                    placeholder="Your venue's name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="venueType" className="block text-sm mb-2">
+                    Venue type
+                  </label>
+                  <select
+                    id="venueType"
+                    name="venueType"
+                    required
+                    defaultValue=""
+                    className="w-full px-4 py-3 bg-dark border border-cream/25 focus:border-gold outline-none transition-colors"
+                  >
+                    <option value="" disabled>
+                      Select...
+                    </option>
+                    <option value="Barcade">Barcade</option>
+                    <option value="Brewery or Taproom">Brewery or Taproom</option>
+                    <option value="Dive bar">Dive bar</option>
+                    <option value="Pool hall">Pool hall</option>
+                    <option value="Tattoo parlor">Tattoo parlor</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="neighborhood" className="block text-sm mb-2">
+                    Neighborhood
+                  </label>
+                  <input
+                    type="text"
+                    id="neighborhood"
+                    name="neighborhood"
+                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors"
+                    placeholder="e.g. Ballard, Capitol Hill"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contactName" className="block text-sm mb-2">
+                    Contact name
+                  </label>
+                  <input
+                    type="text"
+                    id="contactName"
+                    name="contactName"
+                    required
+                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors"
+                    placeholder="you@example.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-sm mb-2">
+                    Phone <span className="text-cream/40">(optional)</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors"
+                    placeholder="(206) 555-0123"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="notes" className="block text-sm mb-2">
+                    Anything else <span className="text-cream/40">(optional)</span>
+                  </label>
+                  <textarea
+                    id="notes"
+                    name="notes"
+                    rows={3}
+                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors resize-none"
+                    placeholder="Foot traffic, hours, anything we should know..."
+                  />
+                </div>
+                {error && <p className="text-red-400 text-sm">{error}</p>}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gold text-cream py-4 text-sm tracking-wide hover:bg-gold/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <option value="">Select...</option>
-                  <option value="wedding">Wedding</option>
-                  <option value="barmitzvah">Bar / Bat Mitzvah</option>
-                  <option value="sweet16">Sweet 16</option>
-                  <option value="birthday">Birthday</option>
-                  <option value="corporate">Corporate</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="date" className="block text-sm mb-2">
-                  Approximate date
-                </label>
-                <input
-                  type="date"
-                  id="date"
-                  name="date"
-                  className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors"
-                />
-              </div>
-              <div>
-                <label htmlFor="guests" className="block text-sm mb-2">
-                  Guest count
-                </label>
-                <select
-                  id="guests"
-                  name="guests"
-                  className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors"
-                >
-                  <option value="">Select...</option>
-                  <option value="under50">Under 50</option>
-                  <option value="50-100">50–100</option>
-                  <option value="100-200">100–200</option>
-                  <option value="200+">200+</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm mb-2">
-                  Anything else we should know <span className="text-muted">(optional)</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={3}
-                  className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors resize-none"
-                  placeholder="Tell us about your event..."
-                />
-              </div>
-              {error && (
-                <p className="text-red-600 text-sm">{error}</p>
-              )}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-dark text-cream py-4 text-sm tracking-wide hover:bg-forest transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? "Submitting..." : "Submit Inquiry"}
-              </button>
+                  {isSubmitting ? "Submitting..." : "Join the Host Waitlist"}
+                </button>
               </form>
             </>
           ) : (
             <div className="text-center py-12">
-              <p className="font-serif text-3xl mb-2">You&apos;re in.</p>
-              <p className="text-muted">We&apos;ll be in touch soon.</p>
+              <p className="font-serif text-3xl mb-2">You&apos;re on the founding-host list.</p>
+              <p className="text-cream/60">We&apos;ll be in touch.</p>
             </div>
           )}
         </div>
@@ -567,8 +651,9 @@ export default function Home() {
             <img src="/salishlogo.png" alt="Salish Trading Co." className="h-8" />
             <p className="text-sm text-muted mt-2">Seattle, WA</p>
           </div>
-          <p className="text-sm text-muted">
-            &copy; 2026 Salish Trading Co. All rights reserved.
+          <p className="text-sm text-muted max-w-md md:text-right">
+            Independent operator. Not affiliated with or endorsed by The Pokémon Company
+            or Nintendo. &copy; 2026 Salish Trading Co.
           </p>
         </div>
       </footer>

@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 interface CTASectionProps {
-  eventType: string;
-  location: string;
+  venueType: string;
+  neighborhood: string;
 }
 
-export default function CTASection({ eventType, location }: CTASectionProps) {
+export default function CTASection({ venueType, neighborhood }: CTASectionProps) {
   return (
     <section className="py-24 px-6 bg-dark text-cream">
       <div className="max-w-3xl mx-auto text-center">
@@ -13,17 +13,17 @@ export default function CTASection({ eventType, location }: CTASectionProps) {
           Get Started
         </p>
         <h2 className="font-serif text-3xl md:text-4xl mb-6">
-          Ready to bring the card bar to your {eventType} in {location}?
+          Want one in your {neighborhood} {venueType}?
         </h2>
         <p className="text-cream/70 text-lg mb-8 max-w-xl mx-auto">
-          Tell us about your event. We&apos;ll design a setup that fits your venue,
-          guest count, and budget.
+          Join the founding-host waitlist. We&apos;ll be in touch to walk through the
+          space, the split, and timing. No cost, no commitment.
         </p>
         <Link
-          href="/#inquire"
-          className="inline-block bg-gold text-dark px-8 py-4 text-sm tracking-wide hover:bg-gold/90 transition-colors font-medium"
+          href="/#waitlist"
+          className="inline-block bg-gold text-cream px-8 py-4 text-sm tracking-wide hover:bg-gold/90 transition-colors font-medium"
         >
-          Submit Inquiry
+          Join the Host Waitlist
         </Link>
       </div>
     </section>

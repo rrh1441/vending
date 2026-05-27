@@ -22,19 +22,16 @@ export async function generateStaticParams() {
 // Disable dynamic params - only pre-generated pages should work
 export const dynamicParams = false;
 
-// Generate metadata for each page
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ eventType: string; location: string }>;
+  params: Promise<{ venueType: string; neighborhood: string }>;
 }): Promise<Metadata> {
-  const { eventType, location } = await params;
-  const pageData = getPageData(eventType, location);
+  const { venueType, neighborhood } = await params;
+  const pageData = getPageData(venueType, neighborhood);
 
   if (!pageData) {
-    return {
-      title: "Page Not Found",
-    };
+    return { title: "Page Not Found" };
   }
 
   return {
@@ -51,17 +48,17 @@ export async function generateMetadata({
 export default async function SEOPage({
   params,
 }: {
-  params: Promise<{ eventType: string; location: string }>;
+  params: Promise<{ venueType: string; neighborhood: string }>;
 }) {
-  const { eventType, location } = await params;
-  const pageData = getPageData(eventType, location);
+  const { venueType, neighborhood } = await params;
+  const pageData = getPageData(venueType, neighborhood);
 
   if (!pageData) {
     notFound();
   }
 
-  const relatedPages = getRelatedPages(pageData.eventType, pageData.location);
-  const faqs = getFAQs(pageData.eventType, pageData.location);
+  const relatedPages = getRelatedPages(pageData.venueType, pageData.neighborhood);
+  const faqs = getFAQs(pageData.venueType, pageData.neighborhood);
 
   return (
     <main>
@@ -71,7 +68,7 @@ export default async function SEOPage({
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
-            {pageData.location.area}
+            {pageData.neighborhood.name}, Seattle
           </p>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight mb-8">
             {pageData.h1}
@@ -81,48 +78,45 @@ export default async function SEOPage({
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/#inquire"
+              href="/#waitlist"
               className="bg-dark text-cream px-8 py-4 text-sm tracking-wide hover:bg-forest transition-colors"
             >
-              Submit Inquiry
+              Join the Host Waitlist
             </Link>
             <Link
               href="/#how-it-works"
               className="border border-dark px-8 py-4 text-sm tracking-wide hover:bg-dark hover:text-cream transition-colors"
             >
-              See How It Works
+              How it works
             </Link>
           </div>
         </div>
       </section>
 
-      {/* What We Bring Section */}
+      {/* Why host Section */}
       <section className="py-24 px-6 bg-dark text-cream">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-3xl">
             <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
-              The Experience
+              Why host one
             </p>
             <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-8">
-              Think open bar.
-              <br />
-              <span className="italic">But for Pok&eacute;mon cards.</span>
+              Passive income from a few square feet.
             </h2>
             <div className="space-y-6 text-cream/70 leading-relaxed text-lg">
               <p>
-                Guests line up. They pick a pack. They rip it open. The whole room
-                watches. Someone pulls a holographic Charizard and doesn&apos;t know
-                what they&apos;re holding until everyone loses their mind.
+                A small sealed trading-card vending machine draws a crowd and gives
+                your regulars a reason to linger. {pageData.venueType.description}
               </p>
               <p>
-                A grandfather pulls a rare card and suddenly he&apos;s the center of
-                attention. Kids and adults end up at the same counter for the first
-                time all night — all of them excited about the same thing.
+                We handle everything — the machine, the genuine sealed product, restocking,
+                maintenance, insurance, and the payment hardware. You just give it a corner
+                and an outlet.
               </p>
               <p>
-                No cost to the guest. No prices visible. Just the pop of foil
-                wrappers, the thrill of the pull, and stories they&apos;ll be telling
-                for years.
+                You earn your choice of a revenue share or a flat monthly rent. No cost, no
+                work, and if the spot doesn&apos;t perform we move the machine. Hosting is
+                genuinely risk-free.
               </p>
             </div>
           </div>
@@ -136,41 +130,33 @@ export default async function SEOPage({
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
-            {pageData.location.region} Service Area
+            Seattle Service Area
           </p>
           <h2 className="font-serif text-3xl md:text-4xl mb-6">
-            Serving {pageData.location.name} and surrounding areas
+            Placing founding-host machines in {pageData.neighborhood.name}
           </h2>
           <p className="text-muted text-lg mb-8 max-w-2xl mx-auto">
-            We&apos;re based in Seattle and travel throughout the Puget Sound region
-            for events. {pageData.location.name} is well within our service area.
+            We&apos;re a Seattle operator selecting founding-host locations across the city
+            now. {pageData.neighborhood.name} {pageData.venueType.plural} are exactly the
+            kind of adult, high-dwell spots we&apos;re looking for. Early hosts get priority.
           </p>
-          {pageData.location.neighborhoods.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-3">
-              {pageData.location.neighborhoods.map((neighborhood) => (
-                <span
-                  key={neighborhood}
-                  className="px-4 py-2 border border-border text-sm text-muted"
-                >
-                  {neighborhood}
-                </span>
-              ))}
-            </div>
-          )}
         </div>
       </section>
 
       {/* FAQ Section */}
-      <FAQ faqs={faqs} location={pageData.location.name} />
+      <FAQ faqs={faqs} subtitle={`Hosting in ${pageData.neighborhood.name}`} />
 
       {/* CTA Section */}
       <CTASection
-        eventType={pageData.eventType.shortName.toLowerCase().replace(/s$/, "")}
-        location={pageData.location.name}
+        venueType={pageData.venueType.name.toLowerCase()}
+        neighborhood={pageData.neighborhood.name}
       />
 
       {/* Related Pages */}
-      <RelatedPages pages={relatedPages} currentLocation={pageData.location.name} />
+      <RelatedPages
+        pages={relatedPages}
+        currentNeighborhood={pageData.neighborhood.name}
+      />
 
       {/* Footer */}
       <Footer />

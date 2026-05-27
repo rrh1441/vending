@@ -11,11 +11,11 @@ export default function Navigation() {
           <Link href="/#how-it-works" className="text-muted hover:text-dark transition-colors">
             How It Works
           </Link>
-          <Link href="/#events" className="text-muted hover:text-dark transition-colors">
-            Events
+          <Link href="/#where-it-fits" className="text-muted hover:text-dark transition-colors">
+            Where It Fits
           </Link>
-          <Link href="/#inquire" className="text-muted hover:text-dark transition-colors">
-            Inquire
+          <Link href="/#waitlist" className="text-muted hover:text-dark transition-colors">
+            Host Waitlist
           </Link>
         </div>
       </div>

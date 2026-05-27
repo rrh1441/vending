@@ -13,8 +13,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Salish Trading Co. | An Open Bar for Trading Cards",
-  description: "A curated, hosted card bar that turns any event into an unforgettable experience. Weddings, Bar Mitzvahs, Sweet 16s, and more.",
+  title: "Salish Trading Co. | Passive Income From a Trading-Card Vending Machine",
+  description:
+    "Host a sealed trading-card vending machine in your Seattle bar, brewery, or shop. We own, stock, service, and insure it — you earn a cut of every sale. Zero cost, zero work.",
   icons: {
     icon: "/salishfav.png",
   },

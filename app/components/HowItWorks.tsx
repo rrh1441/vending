@@ -1,29 +1,29 @@
 const steps = [
   {
     step: "01",
-    title: "Book",
-    description: "Tell us about your event. We design the setup around your venue and guest count.",
+    title: "You host",
+    description: "Give the machine a few square feet and an outlet. That's the whole ask.",
   },
   {
     step: "02",
-    title: "Choose your packs",
-    description: "Modern sets, premium vintage, or a mix. Everything sealed and authenticated.",
+    title: "We set it up",
+    description: "We install it, stock genuine sealed packs, service it, insure it, and run the payments.",
   },
   {
     step: "03",
-    title: "We show up",
-    description: "Counter, lighting, a dedicated host, supplies, teardown. You don't lift a thing.",
+    title: "You earn",
+    description: "Take a revenue share or a flat monthly rent — your choice — on every sale.",
   },
   {
     step: "04",
-    title: "They rip",
-    description: "Guests line up, pick a pack, rip it open, and go home with real cards.",
+    title: "We handle the rest",
+    description: "Restocking, maintenance, payments, insurance. If a spot underperforms, we relocate it.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="py-24 px-6 bg-forest text-cream">
+    <section id="how-it-works" className="py-24 px-6 bg-forest text-cream">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">

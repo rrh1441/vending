@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "barcade",
+    "name": "Barcade",
+    "plural": "barcades",
+    "displayName": "Barcades",
+    "description": "Arcade bars where adults already linger between games — prime dwell time for an impulse pull."
+  },
+  {
+    "slug": "brewery",
+    "name": "Brewery & Taproom",
+    "plural": "breweries and taprooms",
+    "displayName": "Breweries & Taprooms",
+    "description": "Taprooms full of regulars with time on their hands and a little money to spend."
+  },
+  {
+    "slug": "dive-bar",
+    "name": "Dive Bar",
+    "plural": "dive bars",
+    "displayName": "Dive Bars",
+    "description": "Neighborhood bars where a card machine becomes a conversation piece and a draw."
+  },
+  {
+    "slug": "pool-hall",
+    "name": "Pool Hall",
+    "plural": "pool halls",
+    "displayName": "Pool Halls",
+    "description": "Long sessions, repeat visits, and a crowd that loves a little side action."
+  },
+  {
+    "slug": "tattoo-parlor",
+    "name": "Tattoo Parlor",
+    "plural": "tattoo parlors",
+    "displayName": "Tattoo Parlors",
+    "description": "Clients waiting and sitting for hours — the perfect captive, collectible-minded audience."
+  }
+]

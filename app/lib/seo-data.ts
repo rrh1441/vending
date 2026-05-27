@@ -1,28 +1,23 @@
-import eventTypesData from "@/data/event-types.json";
-import locationsData from "@/data/locations.json";
+import venueTypesData from "@/data/venue-types.json";
+import neighborhoodsData from "@/data/neighborhoods.json";
 
 // Types
-export interface EventType {
+export interface VenueType {
   slug: string;
-  eventType: string;
-  angle: string;
+  name: string;
+  plural: string;
   displayName: string;
-  shortName: string;
   description: string;
 }
 
-export interface Location {
+export interface Neighborhood {
   slug: string;
   name: string;
-  region: string;
-  area: string;
-  neighborhoods: string[];
 }
 
 export interface PageData {
-  eventType: EventType;
-  location: Location;
-  title: string;
+  venueType: VenueType;
+  neighborhood: Neighborhood;
   metaTitle: string;
   metaDescription: string;
   h1: string;
@@ -30,26 +25,26 @@ export interface PageData {
 }
 
 // Data accessors
-export const eventTypes: EventType[] = eventTypesData;
-export const locations: Location[] = locationsData;
+export const venueTypes: VenueType[] = venueTypesData;
+export const neighborhoods: Neighborhood[] = neighborhoodsData;
 
-export function getEventType(slug: string): EventType | undefined {
-  return eventTypes.find((e) => e.slug === slug);
+export function getVenueType(slug: string): VenueType | undefined {
+  return venueTypes.find((v) => v.slug === slug);
 }
 
-export function getLocation(slug: string): Location | undefined {
-  return locations.find((l) => l.slug === slug);
+export function getNeighborhood(slug: string): Neighborhood | undefined {
+  return neighborhoods.find((n) => n.slug === slug);
 }
 
-// Generate all valid page combinations
-export function getAllPageSlugs(): { eventType: string; location: string }[] {
-  const slugs: { eventType: string; location: string }[] = [];
+// Generate all valid venue-type × neighborhood combinations
+export function getAllPageSlugs(): { venueType: string; neighborhood: string }[] {
+  const slugs: { venueType: string; neighborhood: string }[] = [];
 
-  for (const eventType of eventTypes) {
-    for (const location of locations) {
+  for (const venueType of venueTypes) {
+    for (const neighborhood of neighborhoods) {
       slugs.push({
-        eventType: eventType.slug,
-        location: location.slug,
+        venueType: venueType.slug,
+        neighborhood: neighborhood.slug,
       });
     }
   }
@@ -57,41 +52,28 @@ export function getAllPageSlugs(): { eventType: string; location: string }[] {
   return slugs;
 }
 
-// Content generation helpers
-function capitalizeFirst(str: string): string {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+export function getPageData(
+  venueTypeSlug: string,
+  neighborhoodSlug: string
+): PageData | null {
+  const venueType = getVenueType(venueTypeSlug);
+  const neighborhood = getNeighborhood(neighborhoodSlug);
 
-function formatEventTypeName(eventType: string): string {
-  return eventType
-    .split("-")
-    .map(capitalizeFirst)
-    .join(" ");
-}
-
-export function getPageData(eventTypeSlug: string, locationSlug: string): PageData | null {
-  const eventType = getEventType(eventTypeSlug);
-  const location = getLocation(locationSlug);
-
-  if (!eventType || !location) {
+  if (!venueType || !neighborhood) {
     return null;
   }
 
-  const formattedEventType = formatEventTypeName(eventType.eventType);
+  const h1 = `Passive income for ${neighborhood.name} ${venueType.plural}`;
 
-  // Generate dynamic content based on the event type and location
-  const h1 = `${eventType.displayName} in ${location.name}`;
+  const metaTitle = `Trading-Card Vending for ${venueType.displayName} in ${neighborhood.name}, Seattle | Salish Trading Co.`;
 
-  const metaTitle = `${eventType.displayName} in ${location.name} | Salish Trading Co.`;
+  const metaDescription = `Host a sealed trading-card vending machine in your ${neighborhood.name} ${venueType.name.toLowerCase()}. We own, stock, and service it — you earn a share of every sale. Zero cost, zero work.`;
 
-  const metaDescription = generateMetaDescription(eventType, location);
-
-  const intro = generateIntro(eventType, location);
+  const intro = `Run a ${venueType.name.toLowerCase()} in ${neighborhood.name}? We place a small sealed trading-card vending machine in adult, high-dwell venues across Seattle — and ${venueType.plural} are a natural fit. We own the machine, stock it with genuine sealed collectible packs, service it, insure it, and run the payments. You give it a few square feet and an outlet, and earn passive income on every sale. Most hosts take a 10–20% revenue share or a flat monthly rent — your choice. No cost, no work, and if a spot doesn't perform we simply move the machine.`;
 
   return {
-    eventType,
-    location,
-    title: h1,
+    venueType,
+    neighborhood,
     metaTitle,
     metaDescription,
     h1,
@@ -99,101 +81,74 @@ export function getPageData(eventTypeSlug: string, locationSlug: string): PageDa
   };
 }
 
-function generateMetaDescription(eventType: EventType, location: Location): string {
-  const templates: Record<string, string> = {
-    wedding: `Looking for unique ${eventType.displayName.toLowerCase()} in ${location.name}? Salish Trading Co. brings a Pok\u00e9mon card bar experience to your reception. Guests rip packs and keep what they pull.`,
-    "bar-mitzvah": `Make your bar mitzvah unforgettable with ${eventType.displayName.toLowerCase()} in ${location.name}. A Pok\u00e9mon card bar that kids and adults will love.`,
-    "bat-mitzvah": `Unique ${eventType.displayName.toLowerCase()} in ${location.name}. A Pok\u00e9mon card bar experience that makes your celebration stand out.`,
-    "sweet-16": `Looking for ${eventType.displayName.toLowerCase()} in ${location.name}? Give them the party their whole feed will be posting from with our Pok\u00e9mon card bar.`,
-    corporate: `${eventType.displayName} in ${location.name} that actually brings the team together. A Pok\u00e9mon card bar experience for company events and team building.`,
-    birthday: `Unique ${eventType.displayName.toLowerCase()} in ${location.name}. A Pok\u00e9mon card bar where guests rip packs and keep what they pull.`,
-  };
-
-  return templates[eventType.eventType] ||
-    `${eventType.displayName} in ${location.name}. Salish Trading Co. brings a unique Pok\u00e9mon card bar experience to your event.`;
-}
-
-function generateIntro(eventType: EventType, location: Location): string {
-  const baseIntros: Record<string, string> = {
-    wedding: `Planning a wedding in ${location.name}? Forget the photo booth your guests have seen a hundred times. Picture this instead: a counter stacked with sealed Pok\u00e9mon packs at your reception. Guests walk up, pick a pack, rip it open, and keep whatever they pull. The whole room watches. Someone pulls a rare holographic card and suddenly they're the center of attention. Uncles and nieces, new in-laws, the friend who didn't know anyone — all of them gathered around the same counter, talking about the same thing.`,
-    "bar-mitzvah": `Looking for ${eventType.displayName.toLowerCase()} in ${location.name}? We bring a hosted Pok\u00e9mon card bar to your celebration. Kids line up to rip packs. Adults fight for a turn. Someone pulls a rare card and the whole room loses their mind. It's the centerpiece of the party that everyone will actually remember.`,
-    "bat-mitzvah": `Make your bat mitzvah in ${location.name} unforgettable. We set up a Pok\u00e9mon card bar where guests pick a pack, rip it open, and keep what they pull. No cost to the guest. No prices visible. Just the pop of foil wrappers, the thrill of the pull, and stories they'll be telling for years.`,
-    "sweet-16": `Planning a Sweet 16 in ${location.name}? Give them the party their whole feed will be posting from. We bring a Pok\u00e9mon card bar where guests rip packs and keep what they pull. Rare cards get passed around. Stories get told. The party photos practically take themselves.`,
-    corporate: `Looking for ${eventType.displayName.toLowerCase()} in ${location.name}? We bring team building that doesn't feel forced. The whole office around one counter, ripping Pok\u00e9mon packs, finally having fun together. Someone pulls a rare card and suddenly they're the hero of the company event.`,
-    birthday: `Planning a birthday party in ${location.name}? We bring a Pok\u00e9mon card bar experience that works for any age. Guests pick a pack, rip it open, and keep whatever they pull. Kids love it. Adults get competitive. Everyone leaves with real cards and real stories.`,
-  };
-
-  return baseIntros[eventType.eventType] ||
-    `Looking for ${eventType.displayName.toLowerCase()} in ${location.name}? Salish Trading Co. brings a unique experience to your event: a hosted Pok\u00e9mon card bar where guests rip packs and keep what they pull.`;
-}
-
 // Get related pages for internal linking
 export function getRelatedPages(
-  currentEventType: EventType,
-  currentLocation: Location,
+  currentVenueType: VenueType,
+  currentNeighborhood: Neighborhood,
   limit: number = 6
-): { eventType: EventType; location: Location; url: string }[] {
-  const related: { eventType: EventType; location: Location; url: string }[] = [];
+): { venueType: VenueType; neighborhood: Neighborhood; url: string }[] {
+  const related: { venueType: VenueType; neighborhood: Neighborhood; url: string }[] = [];
 
-  // Same event type, different locations (prioritize same region)
-  const sameRegionLocations = locations
-    .filter((l) => l.slug !== currentLocation.slug && l.region === currentLocation.region);
-  const otherLocations = locations
-    .filter((l) => l.slug !== currentLocation.slug && l.region !== currentLocation.region);
+  // Same venue type, other neighborhoods
+  const otherNeighborhoods = neighborhoods
+    .filter((n) => n.slug !== currentNeighborhood.slug)
+    .slice(0, 3);
 
-  for (const location of [...sameRegionLocations, ...otherLocations].slice(0, 3)) {
+  for (const neighborhood of otherNeighborhoods) {
     related.push({
-      eventType: currentEventType,
-      location,
-      url: `/${currentEventType.slug}/${location.slug}`,
+      venueType: currentVenueType,
+      neighborhood,
+      url: `/${currentVenueType.slug}/${neighborhood.slug}`,
     });
   }
 
-  // Same location, different event types
-  const relatedEventTypes = eventTypes
-    .filter((e) => e.slug !== currentEventType.slug)
+  // Same neighborhood, other venue types
+  const otherVenueTypes = venueTypes
+    .filter((v) => v.slug !== currentVenueType.slug)
     .slice(0, 3);
 
-  for (const eventType of relatedEventTypes) {
+  for (const venueType of otherVenueTypes) {
     related.push({
-      eventType,
-      location: currentLocation,
-      url: `/${eventType.slug}/${currentLocation.slug}`,
+      venueType,
+      neighborhood: currentNeighborhood,
+      url: `/${venueType.slug}/${currentNeighborhood.slug}`,
     });
   }
 
   return related.slice(0, limit);
 }
 
-// FAQ data generator
-export function getFAQs(eventType: EventType, location: Location): { question: string; answer: string }[] {
-  const eventName = eventType.displayName.toLowerCase();
-  const locationName = location.name;
+// FAQ data generator (host POV)
+export function getFAQs(
+  venueType: VenueType,
+  neighborhood: Neighborhood
+): { question: string; answer: string }[] {
+  const venue = venueType.name.toLowerCase();
 
   return [
     {
-      question: `How does the Pok\u00e9mon card bar work at a ${eventType.shortName.toLowerCase().replace(/s$/, "")} in ${locationName}?`,
-      answer: `We show up with a counter stacked with sealed Pok\u00e9mon packs and a dedicated host to run the experience. Guests walk up, pick a pack, rip it open, and keep whatever they pull. No cost to the guest, no prices visible. We handle setup and teardown — you don't lift a thing.`,
+      question: `What's the catch for my ${neighborhood.name} ${venue}?`,
+      answer: `There isn't one. We own the machine, stock it, service it, insure it, and run the payments. You provide a few square feet and an outlet. You take a cut of every sale and never touch the hardware.`,
     },
     {
-      question: `What Pok\u00e9mon packs do you bring to events in ${locationName}?`,
-      answer: `We offer a curated selection of modern sets, premium vintage packs, or a custom mix. Everything is sealed and authenticated. We'll work with you to choose packs that fit your budget and wow factor — from accessible modern sets to premium vintage pulls.`,
+      question: `How much can I earn?`,
+      answer: `It depends on your traffic, so we only give ranges — never a guarantee. Most hosts choose a 10–20% revenue share or a flat $100–$300 per month. We'll talk through what makes sense for your spot.`,
     },
     {
-      question: `How many guests can the card bar serve at my ${locationName} event?`,
-      answer: `We scale to fit your guest count. Whether you're hosting an intimate gathering of 50 or a large celebration of 200+, we'll design the setup to match your venue and ensure everyone gets a chance to rip.`,
+      question: `How much room does it take?`,
+      answer: `Very little — about 2 ft × 2 ft of floor, roughly 5.9 ft tall, around 35 lbs. It tucks into a corner or against a wall and just needs a standard outlet.`,
     },
     {
-      question: `Do you travel to ${location.region} for events?`,
-      answer: `Yes! We're based in Seattle and regularly serve events throughout ${location.region}, including ${locationName}. We handle all logistics — just tell us where and when.`,
+      question: `Is this official Pokémon or Nintendo?`,
+      answer: `No. Salish Trading Co. is an independent operator and is not affiliated with or endorsed by The Pokémon Company or Nintendo. We stock genuine sealed collectible trading-card packs.`,
     },
     {
-      question: `What makes this different from a photo booth?`,
-      answer: `Photo booths give guests a strip of photos they'll lose in a week. We give them the thrill of the pull, a real collectible card to take home, and a story they'll tell for years. It's interactive entertainment that brings every generation to the same counter.`,
+      question: `Who services and stocks the machine?`,
+      answer: `We do — entirely. Restocking, maintenance, payment hardware, and insurance are all on us. It's fully hands-off for you.`,
     },
     {
-      question: `How do I book Salish Trading Co. for my ${locationName} event?`,
-      answer: `Submit an inquiry through our website. Tell us about your event, your approximate date, and guest count. We'll reach out to discuss details and design a package that fits your celebration.`,
+      question: `What does it cost me to host one in ${neighborhood.name}?`,
+      answer: `Nothing. There's no cost and no work on your end. If the location underperforms, we relocate the machine, so hosting is genuinely risk-free.`,
     },
   ];
 }
