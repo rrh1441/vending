@@ -380,7 +380,7 @@ export default function Home() {
             {benefits.map((b) => (
               <div key={b.title} className="border border-cream/15 p-8">
                 <h3 className="font-serif text-2xl mb-4">{b.title}</h3>
-                <p className="text-cream/60 leading-relaxed">{b.body}</p>
+                <p className="text-cream/75 leading-relaxed">{b.body}</p>
               </div>
             ))}
           </div>
@@ -404,7 +404,7 @@ export default function Home() {
                   {item.step}
                 </span>
                 <h3 className="font-serif text-2xl mb-4">{item.title}</h3>
-                <p className="text-cream/60 leading-relaxed">{item.body}</p>
+                <p className="text-cream/75 leading-relaxed">{item.body}</p>
               </div>
             ))}
           </div>
@@ -426,9 +426,9 @@ export default function Home() {
               </h2>
               <div className="space-y-6 text-muted leading-relaxed text-lg">
                 <p>
-                  A compact sealed-pack vending unit — about 2 ft × 2 ft of floor, roughly
-                  5.9 ft tall, around 35 lbs. It sits against a wall or on a stand and runs
-                  off a standard outlet.
+                  A compact sealed-pack vending unit that fits in about two square feet
+                  against a wall or in a corner. It runs off a standard outlet — that&apos;s
+                  the only thing it needs from you.
                 </p>
                 <p>
                   It dispenses genuine sealed collectible trading-card packs — a popular
@@ -436,18 +436,6 @@ export default function Home() {
                   stocked and serviced; you keep your floor space earning.
                 </p>
               </div>
-              <dl className="grid grid-cols-3 gap-6 mt-10">
-                {[
-                  { k: "Footprint", v: "~2 × 2 ft" },
-                  { k: "Height", v: "~5.9 ft" },
-                  { k: "Weight", v: "~35 lbs" },
-                ].map((spec) => (
-                  <div key={spec.k}>
-                    <dt className="text-sm text-muted">{spec.k}</dt>
-                    <dd className="font-serif text-2xl text-dark">{spec.v}</dd>
-                  </div>
-                ))}
-              </dl>
             </div>
             {/* Machine illustration placeholder */}
             <div className="relative">
@@ -511,7 +499,7 @@ export default function Home() {
       <FAQ faqs={faqs} subtitle="Questions hosts ask" />
 
       {/* Host Waitlist */}
-      <section id="waitlist" className="py-32 px-6 bg-dark text-cream">
+      <section id="waitlist" className="py-32 px-6 border-t border-border">
         <div className="max-w-xl mx-auto">
           {!formSubmitted ? (
             <>
@@ -522,7 +510,7 @@ export default function Home() {
                 <h2 className="font-serif text-4xl md:text-5xl mb-4">
                   Join the host waitlist
                 </h2>
-                <p className="text-cream/60">
+                <p className="text-muted">
                   We&apos;re selecting founding-host locations in Seattle now — early spots
                   get priority. No cost, no commitment.
                 </p>
@@ -537,7 +525,7 @@ export default function Home() {
                     id="businessName"
                     name="businessName"
                     required
-                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors placeholder:text-muted/70"
                     placeholder="Your venue's name"
                   />
                 </div>
@@ -550,7 +538,7 @@ export default function Home() {
                     name="venueType"
                     required
                     defaultValue=""
-                    className="w-full px-4 py-3 bg-dark border border-cream/25 focus:border-gold outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors"
                   >
                     <option value="" disabled>
                       Select...
@@ -571,7 +559,7 @@ export default function Home() {
                     type="text"
                     id="neighborhood"
                     name="neighborhood"
-                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors placeholder:text-muted/70"
                     placeholder="e.g. Ballard, Capitol Hill"
                   />
                 </div>
@@ -584,7 +572,7 @@ export default function Home() {
                     id="contactName"
                     name="contactName"
                     required
-                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors placeholder:text-muted/70"
                     placeholder="Your name"
                   />
                 </div>
@@ -597,39 +585,39 @@ export default function Home() {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors placeholder:text-muted/70"
                     placeholder="you@example.com"
                   />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm mb-2">
-                    Phone <span className="text-cream/40">(optional)</span>
+                    Phone <span className="text-muted">(optional)</span>
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
-                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors placeholder:text-muted/70"
                     placeholder="(206) 555-0123"
                   />
                 </div>
                 <div>
                   <label htmlFor="notes" className="block text-sm mb-2">
-                    Anything else <span className="text-cream/40">(optional)</span>
+                    Anything else <span className="text-muted">(optional)</span>
                   </label>
                   <textarea
                     id="notes"
                     name="notes"
                     rows={3}
-                    className="w-full px-4 py-3 bg-transparent border border-cream/25 focus:border-gold outline-none transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors resize-none placeholder:text-muted/70"
                     placeholder="Foot traffic, hours, anything we should know..."
                   />
                 </div>
-                {error && <p className="text-red-400 text-sm">{error}</p>}
+                {error && <p className="text-red-600 text-sm">{error}</p>}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gold text-cream py-4 text-sm tracking-wide hover:bg-gold/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-dark text-cream py-4 text-sm tracking-wide hover:bg-forest transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Submitting..." : "Join the Host Waitlist"}
                 </button>
@@ -638,7 +626,7 @@ export default function Home() {
           ) : (
             <div className="text-center py-12">
               <p className="font-serif text-3xl mb-2">You&apos;re on the founding-host list.</p>
-              <p className="text-cream/60">We&apos;ll be in touch.</p>
+              <p className="text-muted">We&apos;ll be in touch.</p>
             </div>
           )}
         </div>
