@@ -13,9 +13,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Salish Trading Co. | Passive Income From a Trading-Card Vending Machine",
+  title: "Salish Trading Co. | Turnkey Trading-Card Vending for High-Traffic Properties",
   description:
-    "Host a sealed trading-card vending machine in your Seattle bar, brewery, or shop. We own, stock, service, and insure it — you earn a cut of every sale. Zero cost, zero work.",
+    "Salish places sealed trading-card vending machines in Seattle-area malls, markets, and event venues — owned, stocked, serviced, and fully insured by us. Incremental revenue from a few square feet, with flexible specialty-leasing terms. Independent venues can host for a revenue share.",
   icons: {
     icon: "/salishfav.png",
   },

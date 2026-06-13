@@ -99,86 +99,114 @@ function TradingCard({
   );
 }
 
+// Primary audience = property managers, markets, operators. Value props are
+// framed for them (incremental revenue, zero ops, insured, flexible terms) —
+// the independent-host revenue-share pitch lives in its own section lower down.
 const benefits = [
   {
-    title: "Passive income",
-    body: "Earn a cut of every sale with zero cost and zero work. The machine runs itself; the money is hands-off.",
+    title: "Incremental revenue",
+    body: "A new income line from a few square feet of common-area space you already have. No capital outlay.",
   },
   {
-    title: "A built-in draw",
-    body: "A sealed-pack machine pulls people in and gives your regulars one more reason to stay and spend.",
+    title: "Zero operations",
+    body: "We deliver, stock, service, and run cashless payments. Your team never touches the machine or the cash.",
   },
   {
     title: "Tiny footprint",
-    body: "About 2 ft × 2 ft against a wall or in a corner. All it needs from you is a standard outlet.",
+    body: "About 2 ft × 2 ft and a standard outlet. It fits a concourse, a market hall, or an entrance.",
   },
   {
-    title: "Fully hands-off",
-    body: "We own, stock, service, insure, and run the payments. You never touch the hardware or the cash.",
+    title: "Fully insured",
+    body: "COI provided on request. We carry the liability and the hardware — the placement is clean for you.",
   },
   {
-    title: "Risk-free",
-    body: "The machine is small and mobile. If a spot doesn't perform, we relocate it — no obligation on you.",
+    title: "Flexible terms",
+    body: "A license fee or a percentage, permanent or seasonal. We work within your specialty-leasing process.",
   },
   {
-    title: "Your split, your call",
-    body: "Take a 10–20% revenue share or a flat $100–$300 monthly rent. Whichever suits your venue.",
+    title: "On-trend category",
+    body: "Sealed trading-card packs are a high-margin impulse draw with a devoted collector and family following.",
   },
 ];
 
 const steps = [
   {
     step: "01",
-    title: "You host",
-    body: "Give the machine a few square feet and an outlet. That's the whole ask.",
+    title: "We talk terms",
+    body: "A quick call on placement and terms that fit how you handle vendors — license, percentage, or seasonal.",
   },
   {
     step: "02",
-    title: "We install & run it",
-    body: "We deliver it, stock genuine sealed packs, service it, insure it, and run the payments.",
+    title: "We install",
+    body: "Delivered and set up, fully insured, with a COI in hand. No work or cost on your side.",
   },
   {
     step: "03",
-    title: "You earn",
-    body: "Revenue share or flat monthly rent — your choice — on every sale.",
+    title: "We stock & service",
+    body: "Genuine sealed packs, restocking, maintenance, and the payment hardware — all handled by us.",
   },
   {
     step: "04",
-    title: "We handle the rest",
-    body: "Restocking, maintenance, payments, insurance. If a spot underperforms, we move it.",
+    title: "You collect",
+    body: "A hands-off revenue line with clean reporting. If a spot underperforms, we simply relocate it.",
+  },
+];
+
+// Primary fit: properties / markets / operators (hardcoded — not the SEO venueTypes).
+const propertyFits = [
+  {
+    title: "Malls & shopping centers",
+    body: "Concourse and common-area placements through your specialty-leasing or RMU program — permanent or seasonal.",
+  },
+  {
+    title: "Markets & market halls",
+    body: "Indoor common areas with steady, year-round foot traffic and a built-in browsing crowd.",
+  },
+  {
+    title: "Seasonal farms & event venues",
+    body: "Pumpkin patches, tree farms, festivals — big seasonal crowds with plenty of room near the entrance or market.",
+  },
+  {
+    title: "Multi-location operators",
+    body: "One agreement, placements across your whole portfolio. We scale with you.",
   },
 ];
 
 const faqs = [
   {
-    question: "What's the catch?",
+    question: "How does a placement work for a property?",
     answer:
-      "There isn't one. We own the machine, stock it, service it, insure it, and run the payments. You provide a few square feet and an outlet, and take a cut of every sale. You never touch the hardware.",
+      "We work within your specialty-leasing or vendor process. Terms are flexible — a monthly license fee, a percentage of sales, or a seasonal/holiday placement. We deliver, stock, service, and run the machine; your team does nothing.",
   },
   {
-    question: "How much will I make?",
+    question: "Are you insured?",
     answer:
-      "It depends on your foot traffic, so we only give ranges — never a guarantee. Most hosts choose a 10–20% revenue share or a flat $100–$300 per month. We'll talk through what fits your spot.",
+      "Yes. We carry full liability coverage and provide a certificate of insurance on request, naming the property as required. We own and maintain the hardware.",
   },
   {
-    question: "How much room does it take?",
+    question: "How much space and power does it need?",
     answer:
-      "Very little — about 2 ft × 2 ft of floor, roughly 5.9 ft tall, around 35 lbs. It tucks into a corner or against a wall and runs off a standard outlet.",
+      "Very little — about 2 ft × 2 ft of floor, roughly 5.9 ft tall, around 35 lbs. It tucks against a wall or in a corner and runs off a standard outlet.",
+  },
+  {
+    question: "Who stocks and services it?",
+    answer:
+      "We do — entirely. Restocking, maintenance, the cashless payment hardware, and insurance are all on us. It's fully hands-off.",
+  },
+  {
+    question: "Can you place across multiple locations?",
+    answer:
+      "Yes. One agreement can cover placements across a portfolio — malls, centers, or a market operator's sites. We start with one spot and scale where it performs.",
+  },
+  {
+    question: "I run an independent venue — can I host one?",
+    answer:
+      "Absolutely, and the deal is different: for independent spots the machine is free and you earn a 10–20% revenue share (or a flat monthly rate). See “Great for independent operators” above, or just get in touch.",
   },
   {
     question: "Is this official Pokémon or Nintendo?",
     answer:
       "No. Salish Trading Co. is an independent operator and is not affiliated with or endorsed by The Pokémon Company or Nintendo. We stock genuine sealed collectible trading-card packs.",
-  },
-  {
-    question: "Who services and stocks it?",
-    answer:
-      "We do — entirely. Restocking, maintenance, the payment hardware, and insurance are all on us. It's fully hands-off for you.",
-  },
-  {
-    question: "What does it cost me?",
-    answer:
-      "Nothing. There's no cost and no work on your end. If a location underperforms, we relocate the machine, so hosting is genuinely risk-free.",
   },
 ];
 
@@ -193,6 +221,14 @@ export default function Home() {
     setError("");
 
     const formData = new FormData(e.currentTarget);
+
+    // Honeypot: if the hidden field is filled, it's a bot — fake success, send nothing.
+    if (formData.get("company_website")) {
+      setFormSubmitted(true);
+      setIsSubmitting(false);
+      return;
+    }
+
     const data = {
       businessName: formData.get("businessName"),
       venueType: formData.get("venueType"),
@@ -227,15 +263,18 @@ export default function Home() {
           <a href="#">
             <img src="/salishlogo.png" alt="Salish Trading Co." className="h-10" />
           </a>
-          <div className="hidden md:flex gap-8 text-sm">
+          <div className="hidden md:flex gap-8 text-sm items-center">
             <a href="#how-it-works" className="text-muted hover:text-dark transition-colors">
               How It Works
             </a>
             <a href="#where-it-fits" className="text-muted hover:text-dark transition-colors">
               Where It Fits
             </a>
-            <a href="#waitlist" className="text-muted hover:text-dark transition-colors">
-              Host Waitlist
+            <a href="#hosts" className="text-muted hover:text-dark transition-colors">
+              For Hosts
+            </a>
+            <a href="#contact" className="bg-dark text-cream px-5 py-2 hover:bg-forest transition-colors">
+              Get in touch
             </a>
           </div>
         </div>
@@ -256,30 +295,29 @@ export default function Home() {
                 variants={fadeIn}
                 className="text-sm tracking-[0.2em] uppercase text-gold"
               >
-                Seattle, WA
+                Greater Seattle
               </motion.p>
               <motion.h1
                 variants={fadeIn}
                 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight"
               >
-                Passive income
+                High-traffic space,
                 <br />
-                <span className="italic">from a few square feet.</span>
+                <span className="italic">meet high-margin retail.</span>
               </motion.h1>
               <motion.p
                 variants={fadeIn}
                 className="text-lg md:text-xl text-muted max-w-xl leading-relaxed"
               >
-                A sealed trading-card vending machine in your bar — we own it, stock it,
-                and service it. You give it a corner and an outlet, and earn a cut of
-                every sale.
+                Trading-card vending machines for malls, markets, and event venues — fully run
+                and insured by us. You just provide the outlet.
               </motion.p>
               <motion.div variants={fadeIn} className="flex flex-wrap gap-4 pt-4">
                 <a
-                  href="#waitlist"
+                  href="#contact"
                   className="bg-dark text-cream px-8 py-4 text-sm tracking-wide hover:bg-forest transition-colors"
                 >
-                  Join the Host Waitlist
+                  Start a conversation
                 </a>
                 <a
                   href="#how-it-works"
@@ -363,17 +401,17 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Why host one */}
-      <section id="why-host" className="py-32 px-6 bg-dark text-cream">
+      {/* Why add one */}
+      <section id="why-add" className="py-32 px-6 bg-dark text-cream">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-3xl mb-16">
             <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
-              Why host one
+              Why add one
             </p>
             <h2 className="font-serif text-4xl md:text-5xl leading-tight">
-              Found money in the corner
+              Incremental revenue from space
               <br />
-              <span className="italic">of a room you already have.</span>
+              <span className="italic">you already have.</span>
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -466,7 +504,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Where it fits */}
+      {/* Where it fits — properties / markets / operators (primary) */}
       <section id="where-it-fits" className="py-32 px-6 bg-cream/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -474,51 +512,94 @@ export default function Home() {
               Where it fits
             </p>
             <h2 className="font-serif text-4xl md:text-5xl mb-6">
-              Built for adult, high-dwell spots
+              Built for high-traffic properties
             </h2>
             <p className="text-muted text-lg max-w-2xl mx-auto">
-              The buyer is an adult with disposable income and nostalgia for the hobby —
-              so we place machines where those people already linger.
+              Anywhere collectors and families already gather and dwell — with a little
+              common-area space and an outlet to spare.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {venueTypes.map((v) => (
+          <div className="grid md:grid-cols-2 gap-8">
+            {propertyFits.map((v) => (
               <div
-                key={v.slug}
+                key={v.title}
                 className="border border-border p-8 bg-[#f5f4e1] hover:border-gold/50 transition-colors"
               >
-                <h3 className="font-serif text-2xl mb-4">{v.displayName}</h3>
-                <p className="text-muted leading-relaxed">{v.description}</p>
+                <h3 className="font-serif text-2xl mb-4">{v.title}</h3>
+                <p className="text-muted leading-relaxed">{v.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <FAQ faqs={faqs} subtitle="Questions hosts ask" />
+      {/* Great for independent operators (host model — secondary) */}
+      <section id="hosts" className="py-32 px-6 bg-forest text-cream">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-3xl mb-12">
+            <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
+              For independent venues
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-6">
+              Great for independent operators, too.
+            </h2>
+            <p className="text-cream/80 text-lg leading-relaxed">
+              Run your own spot? Host a machine for free and earn a cut of every sale. We
+              own it, stock it, service it, and insure it — you just give it a corner and an
+              outlet. Take a 10–20% revenue share or a flat monthly rate, and we relocate it
+              if it doesn&apos;t perform.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            {venueTypes.map((v) => (
+              <div key={v.slug} className="border border-cream/15 p-6">
+                <h3 className="font-serif text-xl mb-2">{v.displayName}</h3>
+                <p className="text-cream/70 text-sm leading-relaxed">{v.description}</p>
+              </div>
+            ))}
+          </div>
+          <a
+            href="#contact"
+            className="inline-block bg-cream text-dark px-8 py-4 text-sm tracking-wide hover:bg-gold hover:text-cream transition-colors"
+          >
+            Host a machine
+          </a>
+        </div>
+      </section>
 
-      {/* Host Waitlist */}
-      <section id="waitlist" className="py-32 px-6 border-t border-border">
+      {/* FAQ */}
+      <FAQ faqs={faqs} subtitle="Common questions" />
+
+      {/* Contact */}
+      <section id="contact" className="py-32 px-6 border-t border-border">
         <div className="max-w-xl mx-auto">
           {!formSubmitted ? (
             <>
               <div className="text-center mb-12">
                 <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
-                  Founding Hosts
+                  Get in touch
                 </p>
                 <h2 className="font-serif text-4xl md:text-5xl mb-4">
-                  Join the host waitlist
+                  Let&apos;s find a spot for one.
                 </h2>
                 <p className="text-muted">
-                  We&apos;re selecting founding-host locations in Seattle now — early spots
-                  get priority. No cost, no commitment.
+                  Property, market, event venue, or an independent spot of your own — tell us
+                  a bit and we&apos;ll be in touch. No cost, no commitment.
                 </p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* honeypot — bots fill this; humans never see it */}
+                <input
+                  type="text"
+                  name="company_website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 <div>
                   <label htmlFor="businessName" className="block text-sm mb-2">
-                    Business name
+                    Organization
                   </label>
                   <input
                     type="text"
@@ -526,12 +607,12 @@ export default function Home() {
                     name="businessName"
                     required
                     className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors placeholder:text-muted/70"
-                    placeholder="Your venue's name"
+                    placeholder="Property, market, or venue name"
                   />
                 </div>
                 <div>
                   <label htmlFor="venueType" className="block text-sm mb-2">
-                    Venue type
+                    I&apos;m a&hellip;
                   </label>
                   <select
                     id="venueType"
@@ -543,24 +624,24 @@ export default function Home() {
                     <option value="" disabled>
                       Select...
                     </option>
-                    <option value="Barcade">Barcade</option>
-                    <option value="Brewery or Taproom">Brewery or Taproom</option>
-                    <option value="Dive bar">Dive bar</option>
-                    <option value="Pool hall">Pool hall</option>
-                    <option value="Tattoo parlor">Tattoo parlor</option>
+                    <option value="Mall / shopping center">Mall / shopping center</option>
+                    <option value="Market or market operator">Market or market operator</option>
+                    <option value="Farm or event venue">Farm or event venue</option>
+                    <option value="Multi-location operator">Multi-location operator</option>
+                    <option value="Independent venue (host)">Independent venue (host)</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
                 <div>
                   <label htmlFor="neighborhood" className="block text-sm mb-2">
-                    Neighborhood
+                    City / area
                   </label>
                   <input
                     type="text"
                     id="neighborhood"
                     name="neighborhood"
                     className="w-full px-4 py-3 bg-transparent border border-border focus:border-dark outline-none transition-colors placeholder:text-muted/70"
-                    placeholder="e.g. Ballard, Capitol Hill"
+                    placeholder="e.g. Bellevue, Snohomish, Ballard"
                   />
                 </div>
                 <div>
@@ -619,14 +700,14 @@ export default function Home() {
                   disabled={isSubmitting}
                   className="w-full bg-dark text-cream py-4 text-sm tracking-wide hover:bg-forest transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? "Submitting..." : "Join the Host Waitlist"}
+                  {isSubmitting ? "Sending..." : "Get in touch"}
                 </button>
               </form>
             </>
           ) : (
             <div className="text-center py-12">
-              <p className="font-serif text-3xl mb-2">You&apos;re on the founding-host list.</p>
-              <p className="text-muted">We&apos;ll be in touch.</p>
+              <p className="font-serif text-3xl mb-2">Thanks — we&apos;ve got it.</p>
+              <p className="text-muted">We&apos;ll be in touch shortly.</p>
             </div>
           )}
         </div>

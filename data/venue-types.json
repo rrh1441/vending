@@ -1,37 +1,44 @@
 [
   {
-    "slug": "barcade",
-    "name": "Barcade",
-    "plural": "barcades",
-    "displayName": "Barcades",
-    "description": "Arcade bars where adults already linger between games — prime dwell time for an impulse pull."
+    "slug": "beer-gardens",
+    "name": "Beer Garden",
+    "plural": "beer gardens",
+    "displayName": "Beer Gardens",
+    "description": "Open-air drinking with long dwell times and a crowd in a relaxed, spending mood."
   },
   {
-    "slug": "brewery",
+    "slug": "breweries",
     "name": "Brewery & Taproom",
     "plural": "breweries and taprooms",
     "displayName": "Breweries & Taprooms",
     "description": "Taprooms full of regulars with time on their hands and a little money to spend."
   },
   {
-    "slug": "dive-bar",
-    "name": "Dive Bar",
-    "plural": "dive bars",
-    "displayName": "Dive Bars",
-    "description": "Neighborhood bars where a card machine becomes a conversation piece and a draw."
+    "slug": "barcades",
+    "name": "Barcade",
+    "plural": "barcades",
+    "displayName": "Barcades",
+    "description": "Arcade bars where adults linger between games — prime dwell time for an impulse pull."
   },
   {
-    "slug": "pool-hall",
+    "slug": "bars-pubs",
+    "name": "Bar & Pub",
+    "plural": "bars and pubs",
+    "displayName": "Bars & Pubs",
+    "description": "Neighborhood spots where a card machine becomes a conversation piece and a draw."
+  },
+  {
+    "slug": "pool-halls",
     "name": "Pool Hall",
     "plural": "pool halls",
     "displayName": "Pool Halls",
     "description": "Long sessions, repeat visits, and a crowd that loves a little side action."
   },
   {
-    "slug": "tattoo-parlor",
-    "name": "Tattoo Parlor",
-    "plural": "tattoo parlors",
-    "displayName": "Tattoo Parlors",
-    "description": "Clients waiting and sitting for hours — the perfect captive, collectible-minded audience."
+    "slug": "game-shops",
+    "name": "Game & Hobby Shop",
+    "plural": "game and hobby shops",
+    "displayName": "Game & Hobby Shops",
+    "description": "Collectors already in the building — sealed packs by the register sell themselves."
   }
 ]
