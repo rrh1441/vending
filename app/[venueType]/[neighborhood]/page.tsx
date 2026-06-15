@@ -138,7 +138,7 @@ export default async function SEOPage({
           <p className="text-muted text-lg mb-8 max-w-2xl mx-auto">
             We&apos;re a Seattle operator selecting founding-host locations across the city
             now. {pageData.neighborhood.name} {pageData.venueType.plural} are exactly the
-            kind of adult, high-dwell spots we&apos;re looking for. Early hosts get priority.
+            kind of high-traffic spots we&apos;re looking for. Early hosts get priority.
           </p>
         </div>
       </section>

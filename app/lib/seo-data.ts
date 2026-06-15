@@ -69,7 +69,7 @@ export function getPageData(
 
   const metaDescription = `Host a sealed trading-card vending machine in your ${neighborhood.name} ${venueType.name.toLowerCase()}. We own, stock, and service it — you earn a share of every sale. Zero cost, zero work.`;
 
-  const intro = `Run a ${venueType.name.toLowerCase()} in ${neighborhood.name}? We place a small sealed trading-card vending machine in adult, high-dwell venues across Seattle — and ${venueType.plural} are a natural fit. We own the machine, stock it with genuine sealed collectible packs, service it, insure it, and run the payments. You give it a few square feet and an outlet, and earn passive income on every sale. Most hosts take a 10–20% revenue share or a flat monthly rent — your choice. No cost, no work, and if a spot doesn't perform we simply move the machine.`;
+  const intro = `Run a ${venueType.name.toLowerCase()} in ${neighborhood.name}? We place small, sealed trading-card vending machines in high-traffic spots across Seattle — from year-round storefronts to seasonal markets — and ${venueType.plural} are a natural fit. We own the machine, stock it with genuine sealed collectible packs, service it, insure it, and run the payments. You give it a few square feet and an outlet, and earn passive income on every sale. Most hosts take a 10–20% revenue share or a flat monthly rent — your choice. No cost, no work, and if a spot doesn't perform we simply move the machine.`;
 
   return {
     venueType,

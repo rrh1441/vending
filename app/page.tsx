@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 import FAQ from "@/app/components/FAQ";
 import { venueTypes } from "@/app/lib/seo-data";
@@ -17,87 +18,6 @@ const stagger = {
     },
   },
 };
-
-// Decorative hero card — fictional, Salish-branded (not Pokémon/Nintendo IP).
-function TradingCard({
-  name,
-  type,
-  hp,
-  attack,
-  damage,
-  className = "",
-  style = {},
-}: {
-  name: string;
-  type: "electric" | "water" | "fire";
-  hp: number;
-  attack: string;
-  damage: string;
-  className?: string;
-  style?: React.CSSProperties;
-}) {
-  const typeColors = {
-    electric: {
-      bg: "from-amber-300 to-yellow-400",
-      border: "border-amber-500",
-      accent: "#F59E0B",
-      icon: "⚡",
-    },
-    water: {
-      bg: "from-cyan-400 to-blue-500",
-      border: "border-blue-500",
-      accent: "#0EA5E9",
-      icon: "💧",
-    },
-    fire: {
-      bg: "from-orange-400 to-red-500",
-      border: "border-red-500",
-      accent: "#EF4444",
-      icon: "🔥",
-    },
-  };
-
-  const colors = typeColors[type];
-
-  return (
-    <div
-      className={`relative w-48 h-68 rounded-xl shadow-2xl overflow-hidden ${className}`}
-      style={style}
-    >
-      <div className={`absolute inset-0 bg-gradient-to-br ${colors.bg}`} />
-      <div className="absolute inset-2 bg-cream/95 rounded-lg flex flex-col">
-        <div className="flex justify-between items-center px-3 pt-2">
-          <span className="font-serif font-bold text-sm text-dark">{name}</span>
-          <span className="text-xs font-bold" style={{ color: colors.accent }}>
-            {hp} HP
-          </span>
-        </div>
-        <div className={`mx-3 mt-1 h-24 rounded bg-gradient-to-br ${colors.bg} flex items-center justify-center ${colors.border} border-2`}>
-          <span className="text-4xl">{colors.icon}</span>
-        </div>
-        <div className="px-3 mt-2">
-          <span
-            className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full text-[#f5f4e1] font-medium"
-            style={{ backgroundColor: colors.accent }}
-          >
-            {type}
-          </span>
-        </div>
-        <div className="px-3 mt-2 flex-1">
-          <div className="flex items-center gap-2 text-xs">
-            <span style={{ color: colors.accent }}>{colors.icon}</span>
-            <span className="font-medium text-dark">{attack}</span>
-            <span className="ml-auto font-bold text-dark">{damage}</span>
-          </div>
-        </div>
-        <div className="px-3 pb-2 flex justify-between items-center">
-          <span className="text-[8px] text-muted">Salish Trading Co.</span>
-          <span className="text-[10px] text-gold">★★★</span>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // Primary audience = property managers, markets, operators. Value props are
 // framed for them (incremental revenue, zero ops, insured, flexible terms) —
@@ -328,59 +248,23 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Right: Card fan display */}
+            {/* Right: product photo in context */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="relative h-[400px] lg:h-[500px] flex items-center justify-center"
+              className="relative flex items-center justify-center"
             >
-              <motion.div
-                initial={{ rotate: -15, y: 20 }}
-                animate={{ rotate: -15, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="absolute"
-                style={{ transform: "rotate(-15deg) translateX(-60px)" }}
-              >
-                <TradingCard
-                  name="Zaplet"
-                  type="electric"
-                  hp={80}
-                  attack="Thunder Shock"
-                  damage="40"
-                />
-              </motion.div>
-              <motion.div
-                initial={{ y: 30 }}
-                animate={{ y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="absolute z-10"
-              >
-                <TradingCard
-                  name="Aquarix"
-                  type="water"
-                  hp={90}
-                  attack="Hydro Splash"
-                  damage="50"
-                />
-              </motion.div>
-              <motion.div
-                initial={{ rotate: 15, y: 20 }}
-                animate={{ rotate: 15, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-                className="absolute"
-                style={{ transform: "rotate(15deg) translateX(60px)" }}
-              >
-                <TradingCard
-                  name="Embrix"
-                  type="fire"
-                  hp={70}
-                  attack="Flame Burst"
-                  damage="60"
-                />
-              </motion.div>
-
               <div className="absolute inset-0 bg-gradient-radial from-gold/20 via-transparent to-transparent rounded-full blur-3xl" />
+              <Image
+                src="/mockups/street-market.jpeg"
+                alt="Salish trading-card vending machine at a busy outdoor market"
+                width={1536}
+                height={2752}
+                priority
+                sizes="(max-width: 1024px) 90vw, 460px"
+                className="relative rounded-2xl shadow-2xl object-cover h-[420px] lg:h-[560px] w-auto"
+              />
             </motion.div>
           </div>
         </div>
@@ -475,31 +359,53 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            {/* Machine illustration placeholder */}
+            {/* Machine in a convenience store */}
             <div className="relative">
-              <div className="aspect-[3/4] max-w-sm mx-auto bg-dark rounded-2xl border border-border flex flex-col overflow-hidden shadow-2xl">
-                <div className="bg-forest text-cream text-center py-4 text-sm tracking-[0.2em] uppercase">
-                  Salish Trading Co.
-                </div>
-                <div className="flex-1 grid grid-cols-3 grid-rows-4 gap-2 p-4">
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className="bg-cream/10 border border-cream/20 rounded flex items-center justify-center"
-                    >
-                      <span className="text-cream/30 text-xs">pack</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="bg-cream/5 border-t border-cream/15 py-4 px-4 flex items-center justify-between">
-                  <span className="text-cream/40 text-xs">tap to pay</span>
-                  <span className="text-gold text-xs">cashless</span>
-                </div>
-              </div>
-              <p className="text-center text-xs text-muted mt-4">
-                Illustration — final unit may vary.
-              </p>
+              <Image
+                src="/mockups/c-store.jpeg"
+                alt="Salish trading-card vending machine beside the cooler in a convenience store"
+                width={1536}
+                height={2752}
+                sizes="(max-width: 1024px) 90vw, 420px"
+                className="rounded-2xl shadow-2xl object-cover w-full max-w-sm mx-auto h-auto"
+              />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* See it in place — environment gallery */}
+      <section id="in-place" className="py-32 px-6 bg-dark text-cream">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
+              See it in place
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl">
+              The same machine, very different spots.
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { src: "farmers-market", label: "Farmers market" },
+              { src: "bar", label: "Neighborhood bar" },
+              { src: "beer-garden", label: "Beer garden" },
+              { src: "mall", label: "Shopping mall" },
+            ].map((m) => (
+              <figure key={m.src} className="overflow-hidden rounded-2xl shadow-2xl">
+                <Image
+                  src={`/mockups/${m.src}.jpeg`}
+                  alt={`Salish trading-card vending machine at a ${m.label.toLowerCase()}`}
+                  width={1536}
+                  height={2752}
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 360px"
+                  className="w-full h-auto object-cover"
+                />
+                <figcaption className="bg-forest text-cream/90 text-sm tracking-wide px-4 py-3">
+                  {m.label}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
