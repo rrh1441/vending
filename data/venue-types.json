@@ -1,233 +1,83 @@
 [
   {
-    "slug": "beer-gardens",
-    "name": "Beer Garden",
-    "plural": "beer gardens",
-    "displayName": "Beer Gardens",
-    "description": "Open-air drinking with long dwell times and a crowd in a relaxed, spending mood."
-  },
-  {
-    "slug": "breweries",
-    "name": "Brewery & Taproom",
-    "plural": "breweries and taprooms",
-    "displayName": "Breweries & Taprooms",
-    "description": "Taprooms full of regulars with time on their hands and a little money to spend."
-  },
-  {
-    "slug": "barcades",
-    "name": "Barcade",
-    "plural": "barcades",
-    "displayName": "Barcades",
-    "description": "Arcade bars where adults linger between games — prime dwell time for an impulse pull."
-  },
-  {
-    "slug": "bars-pubs",
-    "name": "Bar & Pub",
-    "plural": "bars and pubs",
-    "displayName": "Bars & Pubs",
-    "description": "Neighborhood spots where a card machine becomes a conversation piece and a draw."
-  },
-  {
-    "slug": "pool-halls",
-    "name": "Pool Hall",
-    "plural": "pool halls",
-    "displayName": "Pool Halls",
-    "description": "Long sessions, repeat visits, and a crowd that loves a little side action."
-  },
-  {
-    "slug": "game-shops",
-    "name": "Game & Hobby Shop",
-    "plural": "game and hobby shops",
-    "displayName": "Game & Hobby Shops",
-    "description": "Collectors already in the building — sealed packs by the register sell themselves."
+    "slug": "pumpkin-patches",
+    "name": "Seasonal Farm & Pumpkin Patch",
+    "plural": "seasonal farms",
+    "displayName": "Seasonal Farms & Pumpkin Patches",
+    "description": "A whole season of families streaming through with cash in hand — a natural impulse buy on the way out.",
+    "benefit": "A whole season of families streaming through with cash in hand. A sealed-pack machine in the farm market or by the exit is the easy impulse buy on the way out — and it earns through every weekend of the rush.",
+    "locations": ["carnation", "snohomish", "woodinville", "puyallup", "maple-valley", "auburn"]
   },
   {
     "slug": "shopping-malls",
     "name": "Shopping Mall",
     "plural": "shopping malls",
     "displayName": "Shopping Malls",
-    "description": "Constant foot traffic and families browsing with time to kill — a natural impulse buy on the concourse."
+    "description": "Steady all-day foot traffic and shoppers already in spending mode.",
+    "benefit": "Steady foot traffic all day and shoppers already in spending mode. A sealed-pack machine on the concourse earns its few square feet without a single staff hour.",
+    "locations": ["tukwila", "bellevue", "lynnwood", "redmond", "university-district", "downtown-seattle"]
   },
   {
-    "slug": "convenience-stores",
-    "name": "Convenience Store",
-    "plural": "convenience stores",
-    "displayName": "Convenience Stores",
-    "description": "Quick, repeat visits all day long — a sealed-pack machine earns its corner by the counter."
+    "slug": "public-markets",
+    "name": "Public Market",
+    "plural": "public markets",
+    "displayName": "Public Markets",
+    "description": "Dense, browsing crowds in a spending mood, all day, every day.",
+    "benefit": "Dense, browsing crowds in a spending mood, all day, every day. A sealed-pack machine fits right into the market floor and runs itself.",
+    "locations": ["downtown-seattle", "ballard", "capitol-hill", "fremont", "bellevue", "university-district"]
   },
   {
-    "slug": "comic-shops",
-    "name": "Comic Book Shop",
-    "plural": "comic book shops",
-    "displayName": "Comic Book Shops",
-    "description": "Collectors are already in the door — adding sealed packs is the easiest upsell in the store."
+    "slug": "beer-gardens",
+    "name": "Beer Garden",
+    "plural": "beer gardens",
+    "displayName": "Beer Gardens",
+    "description": "Long, relaxed sessions and a crowd happy to spend.",
+    "benefit": "Long, relaxed sessions and a crowd happy to spend. A card machine becomes a conversation piece and a second reason to stick around — earning from a corner you weren't using.",
+    "locations": ["capitol-hill", "fremont", "georgetown", "ballard", "west-seattle"]
   },
   {
-    "slug": "toy-stores",
-    "name": "Toy & Hobby Store",
-    "plural": "toy and hobby stores",
-    "displayName": "Toy & Hobby Stores",
-    "description": "Families already shopping for exactly this — a pack machine fits the shelf and the moment."
+    "slug": "breweries",
+    "name": "Brewery & Taproom",
+    "plural": "breweries and taprooms",
+    "displayName": "Breweries & Taprooms",
+    "description": "Taprooms full of regulars with time on their hands.",
+    "benefit": "Taprooms full of regulars with time on their hands. A sealed-pack machine adds a little fun and a steady trickle of revenue from a corner you weren't using.",
+    "locations": ["ballard", "fremont", "georgetown", "capitol-hill", "queen-anne"]
   },
   {
-    "slug": "card-shops",
-    "name": "Card & Collectibles Shop",
-    "plural": "card and collectibles shops",
-    "displayName": "Card & Collectibles Shops",
-    "description": "A dedicated collector crowd — a 24/7 sealed-pack machine extends your counter and your hours."
-  },
-  {
-    "slug": "barber-shops",
-    "name": "Barbershop & Salon",
-    "plural": "barbershops and salons",
-    "displayName": "Barbershops & Salons",
-    "description": "Built-in wait times and a captive chair — the classic spot for an impulse machine."
-  },
-  {
-    "slug": "laundromats",
-    "name": "Laundromat",
-    "plural": "laundromats",
-    "displayName": "Laundromats",
-    "description": "Thirty idle minutes per visit and an outlet to spare — laundromats and vending go way back."
-  },
-  {
-    "slug": "car-washes",
-    "name": "Car Wash",
-    "plural": "car washes",
-    "displayName": "Car Washes",
-    "description": "Drivers waiting on the wash with nothing to do — a lobby machine turns dead time into sales."
+    "slug": "bars-pubs",
+    "name": "Bar & Pub",
+    "plural": "bars and pubs",
+    "displayName": "Bars & Pubs",
+    "description": "Neighborhood regulars who linger — a card machine is a talker and a draw.",
+    "benefit": "Neighborhood regulars who linger over a drink. A card machine is a talker and a draw, and it earns from a few square feet by the door.",
+    "locations": ["capitol-hill", "ballard", "fremont", "west-seattle", "columbia-city", "belltown", "pioneer-square"]
   },
   {
     "slug": "coffee-shops",
     "name": "Coffee Shop & Café",
     "plural": "coffee shops and cafés",
     "displayName": "Coffee Shops & Cafés",
-    "description": "Regulars who linger over a drink — a tucked-in card machine becomes a small daily ritual."
+    "description": "Regulars who linger over a drink — a small daily ritual.",
+    "benefit": "Regulars who linger over a drink. A tucked-in pack machine becomes a small daily ritual and a steady trickle of passive income.",
+    "locations": ["capitol-hill", "ballard", "fremont", "university-district", "wallingford", "west-seattle", "greenwood", "columbia-city"]
   },
   {
-    "slug": "pizza-shops",
-    "name": "Pizzeria",
-    "plural": "pizzerias",
-    "displayName": "Pizzerias",
-    "description": "Families waiting on a pie — a sealed-pack machine by the counter is an easy add to the order."
+    "slug": "barber-shops",
+    "name": "Barbershop & Salon",
+    "plural": "barbershops and salons",
+    "displayName": "Barbershops & Salons",
+    "description": "Built-in wait times and a captive chair — the classic impulse spot.",
+    "benefit": "Built-in wait times and a captive chair. The classic home for an impulse machine — found money from the corner of your shop.",
+    "locations": ["capitol-hill", "ballard", "columbia-city", "west-seattle", "greenwood", "beacon-hill"]
   },
   {
-    "slug": "ice-cream-shops",
-    "name": "Ice Cream & Dessert Shop",
-    "plural": "ice cream and dessert shops",
-    "displayName": "Ice Cream & Dessert Shops",
-    "description": "A treat-mode crowd of families out together — the perfect frame of mind for an impulse pull."
-  },
-  {
-    "slug": "food-halls",
-    "name": "Food Hall",
-    "plural": "food halls",
-    "displayName": "Food Halls",
-    "description": "Groups lingering over food and drink in shared space — high traffic, long dwell, easy placement."
-  },
-  {
-    "slug": "movie-theaters",
-    "name": "Movie Theater",
-    "plural": "movie theaters",
-    "displayName": "Movie Theaters",
-    "description": "Lobbies full of people early for showtimes — a card machine catches them with cash to spend."
-  },
-  {
-    "slug": "bowling-alleys",
-    "name": "Bowling Alley",
-    "plural": "bowling alleys",
-    "displayName": "Bowling Alleys",
-    "description": "Long sessions, families and leagues, and a crowd already primed for a little side fun."
-  },
-  {
-    "slug": "family-entertainment-centers",
-    "name": "Family Entertainment Center",
-    "plural": "family entertainment centers",
-    "displayName": "Family Entertainment Centers",
-    "description": "Built for family impulse spending — a pack machine fits right alongside the games."
-  },
-  {
-    "slug": "trampoline-parks",
-    "name": "Trampoline Park",
-    "plural": "trampoline parks",
-    "displayName": "Trampoline Parks",
-    "description": "Families in for the afternoon with downtime on the benches — prime territory for an impulse pull."
-  },
-  {
-    "slug": "arcades",
-    "name": "Family Arcade",
-    "plural": "family arcades",
-    "displayName": "Family Arcades",
-    "description": "A token-and-prize crowd that already loves the pull — sealed packs slot right into the floor."
-  },
-  {
-    "slug": "skating-rinks",
-    "name": "Skating Rink",
-    "plural": "skating rinks",
-    "displayName": "Skating Rinks",
-    "description": "Roller and ice rinks pack in families for hours — long dwell, built-in breaks, easy placement."
-  },
-  {
-    "slug": "climbing-gyms",
-    "name": "Climbing Gym",
-    "plural": "climbing gyms",
-    "displayName": "Climbing Gyms",
-    "description": "A young, social crowd resting between climbs — high dwell and a lobby that suits a machine."
-  },
-  {
-    "slug": "hotels",
-    "name": "Hotel & Lodge",
-    "plural": "hotels and lodges",
-    "displayName": "Hotels & Lodges",
-    "description": "Guests and families with downtime in the lobby — a sealed-pack machine adds a little delight."
-  },
-  {
-    "slug": "farmers-markets",
-    "name": "Farmers Market",
-    "plural": "farmers markets",
-    "displayName": "Farmers Markets",
-    "description": "Seasonal crowds strolling with cash in hand — a stall-side machine rides the weekend rush."
-  },
-  {
-    "slug": "street-markets",
-    "name": "Street & Night Market",
-    "plural": "street and night markets",
-    "displayName": "Street & Night Markets",
-    "description": "Dense, browsing crowds in a spending mood — peak impulse territory when the market is on."
-  },
-  {
-    "slug": "pop-up-markets",
-    "name": "Pop-Up Market & Shop",
-    "plural": "pop-up markets and shops",
-    "displayName": "Pop-Up Markets & Shops",
-    "description": "Short runs and dense, cash-in-hand browsing crowds — drop a machine in for the pop-up and pull it after."
-  },
-  {
-    "slug": "holiday-markets",
-    "name": "Holiday Market",
-    "plural": "holiday markets",
-    "displayName": "Holiday Markets",
-    "description": "A few high-traffic weeks of gift-minded shoppers — a sealed-pack machine is an easy stocking-stuffer."
-  },
-  {
-    "slug": "fairs-festivals",
-    "name": "Fair & Festival",
-    "plural": "fairs and festivals",
-    "displayName": "Fairs & Festivals",
-    "description": "Seasonal foot traffic by the thousands — drop a machine in for the run and pull it after."
-  },
-  {
-    "slug": "ski-resorts",
-    "name": "Ski Resort & Lodge",
-    "plural": "ski resorts and lodges",
-    "displayName": "Ski Resorts & Lodges",
-    "description": "Day-lodge crowds waiting out the cold with time and money — strong seasonal dwell."
-  },
-  {
-    "slug": "conventions",
-    "name": "Convention & Expo",
-    "plural": "conventions and expos",
-    "displayName": "Conventions & Expos",
-    "description": "Comic-cons and collector expos packed with exactly the right buyers — a machine sells itself on the floor."
+    "slug": "laundromats",
+    "name": "Laundromat",
+    "plural": "laundromats",
+    "displayName": "Laundromats",
+    "description": "Thirty idle minutes per visit and an outlet to spare.",
+    "benefit": "Thirty idle minutes per visit and an outlet to spare. Laundromats and vending go way back — this one just pays you a cut.",
+    "locations": ["capitol-hill", "university-district", "columbia-city", "beacon-hill", "greenwood"]
   }
 ]

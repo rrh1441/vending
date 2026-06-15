@@ -16,9 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Dynamic SEO pages (venue type × Seattle neighborhood)
+  // Dynamic SEO pages (real venue type × location pairs only)
   const seoPages: MetadataRoute.Sitemap = allPages.map((page) => ({
-    url: `${BASE_URL}/${page.venueType}/${page.neighborhood}`,
+    url: `${BASE_URL}/${page.venueType}/${page.location}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,

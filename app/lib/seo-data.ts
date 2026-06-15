@@ -1,5 +1,5 @@
 import venueTypesData from "@/data/venue-types.json";
-import neighborhoodsData from "@/data/neighborhoods.json";
+import locationsData from "@/data/locations.json";
 
 // Types
 export interface VenueType {
@@ -8,44 +8,48 @@ export interface VenueType {
   plural: string;
   displayName: string;
   description: string;
+  benefit: string;
+  locations: string[];
 }
 
-export interface Neighborhood {
+export interface Location {
   slug: string;
   name: string;
+  region: string;
 }
 
 export interface PageData {
   venueType: VenueType;
-  neighborhood: Neighborhood;
+  location: Location;
   metaTitle: string;
   metaDescription: string;
-  h1: string;
-  intro: string;
+  eyebrow: string;
+  headline: string;
+  benefit: string;
 }
 
 // Data accessors
 export const venueTypes: VenueType[] = venueTypesData;
-export const neighborhoods: Neighborhood[] = neighborhoodsData;
+export const locations: Location[] = locationsData;
 
 export function getVenueType(slug: string): VenueType | undefined {
   return venueTypes.find((v) => v.slug === slug);
 }
 
-export function getNeighborhood(slug: string): Neighborhood | undefined {
-  return neighborhoods.find((n) => n.slug === slug);
+export function getLocation(slug: string): Location | undefined {
+  return locations.find((l) => l.slug === slug);
 }
 
-// Generate all valid venue-type × neighborhood combinations
-export function getAllPageSlugs(): { venueType: string; neighborhood: string }[] {
-  const slugs: { venueType: string; neighborhood: string }[] = [];
+// Generate only real venue-type × location pairs — each venue type carries an
+// explicit list of the places that actually have it. No blind cross-product.
+export function getAllPageSlugs(): { venueType: string; location: string }[] {
+  const slugs: { venueType: string; location: string }[] = [];
 
   for (const venueType of venueTypes) {
-    for (const neighborhood of neighborhoods) {
-      slugs.push({
-        venueType: venueType.slug,
-        neighborhood: neighborhood.slug,
-      });
+    for (const locationSlug of venueType.locations) {
+      if (getLocation(locationSlug)) {
+        slugs.push({ venueType: venueType.slug, location: locationSlug });
+      }
     }
   }
 
@@ -54,101 +58,54 @@ export function getAllPageSlugs(): { venueType: string; neighborhood: string }[]
 
 export function getPageData(
   venueTypeSlug: string,
-  neighborhoodSlug: string
+  locationSlug: string
 ): PageData | null {
   const venueType = getVenueType(venueTypeSlug);
-  const neighborhood = getNeighborhood(neighborhoodSlug);
+  const location = getLocation(locationSlug);
 
-  if (!venueType || !neighborhood) {
+  if (!venueType || !location) {
     return null;
   }
 
-  const h1 = `Passive income for ${neighborhood.name} ${venueType.plural}`;
+  // Only real pairs are valid pages.
+  if (!venueType.locations.includes(location.slug)) {
+    return null;
+  }
 
-  const metaTitle = `Trading-Card Vending for ${venueType.displayName} in ${neighborhood.name}, Seattle | Salish Trading Co.`;
+  const where = `${location.name}, ${location.region}`;
 
-  const metaDescription = `Host a sealed trading-card vending machine in your ${neighborhood.name} ${venueType.name.toLowerCase()}. We own, stock, and service it — you earn a share of every sale. Zero cost, zero work.`;
+  const eyebrow = where;
 
-  const intro = `Run a ${venueType.name.toLowerCase()} in ${neighborhood.name}? We place small, sealed trading-card vending machines in high-traffic spots across Seattle — from year-round storefronts to seasonal markets — and ${venueType.plural} are a natural fit. We own the machine, stock it with genuine sealed collectible packs, service it, insure it, and run the payments. You give it a few square feet and an outlet, and earn passive income on every sale. Most hosts take a 10–20% revenue share or a flat monthly rent — your choice. No cost, no work, and if a spot doesn't perform we simply move the machine.`;
+  const headline = `Passive income for ${location.name} ${venueType.plural}.`;
+
+  const metaTitle = `Trading-Card Vending for ${venueType.displayName} in ${location.name} | Salish Trading Co.`;
+
+  const metaDescription = `Host a sealed trading-card vending machine at your ${location.name} ${venueType.name.toLowerCase()}. We own, stock, service, and insure it — you earn a share of every sale. No cost, no work.`;
 
   return {
     venueType,
-    neighborhood,
+    location,
     metaTitle,
     metaDescription,
-    h1,
-    intro,
+    eyebrow,
+    headline,
+    benefit: venueType.benefit,
   };
 }
 
-// Get related pages for internal linking
-export function getRelatedPages(
-  currentVenueType: VenueType,
-  currentNeighborhood: Neighborhood,
-  limit: number = 6
-): { venueType: VenueType; neighborhood: Neighborhood; url: string }[] {
-  const related: { venueType: VenueType; neighborhood: Neighborhood; url: string }[] = [];
-
-  // Same venue type, other neighborhoods
-  const otherNeighborhoods = neighborhoods
-    .filter((n) => n.slug !== currentNeighborhood.slug)
-    .slice(0, 3);
-
-  for (const neighborhood of otherNeighborhoods) {
-    related.push({
-      venueType: currentVenueType,
-      neighborhood,
-      url: `/${currentVenueType.slug}/${neighborhood.slug}`,
-    });
-  }
-
-  // Same neighborhood, other venue types
-  const otherVenueTypes = venueTypes
-    .filter((v) => v.slug !== currentVenueType.slug)
-    .slice(0, 3);
-
-  for (const venueType of otherVenueTypes) {
-    related.push({
-      venueType,
-      neighborhood: currentNeighborhood,
-      url: `/${venueType.slug}/${currentNeighborhood.slug}`,
-    });
-  }
-
-  return related.slice(0, limit);
-}
-
-// FAQ data generator (host POV)
-export function getFAQs(
+// Nearby pages for light internal linking: same venue type, other locations.
+export function getNearbyPages(
   venueType: VenueType,
-  neighborhood: Neighborhood
-): { question: string; answer: string }[] {
-  const venue = venueType.name.toLowerCase();
-
-  return [
-    {
-      question: `What's the catch for my ${neighborhood.name} ${venue}?`,
-      answer: `There isn't one. We own the machine, stock it, service it, insure it, and run the payments. You provide a few square feet and an outlet. You take a cut of every sale and never touch the hardware.`,
-    },
-    {
-      question: `How much can I earn?`,
-      answer: `It depends on your traffic, so we only give ranges — never a guarantee. Most hosts choose a 10–20% revenue share or a flat $100–$300 per month. We'll talk through what makes sense for your spot.`,
-    },
-    {
-      question: `How much room does it take?`,
-      answer: `Very little — about 2 ft × 2 ft of floor, roughly 5.9 ft tall, around 35 lbs. It tucks into a corner or against a wall and just needs a standard outlet.`,
-    },
-    {
-      question: `Is this official Pokémon or Nintendo?`,
-      answer: `No. Salish Trading Co. is an independent operator and is not affiliated with or endorsed by The Pokémon Company or Nintendo. We stock genuine sealed collectible trading-card packs.`,
-    },
-    {
-      question: `Who services and stocks the machine?`,
-      answer: `We do — entirely. Restocking, maintenance, payment hardware, and insurance are all on us. It's fully hands-off for you.`,
-    },
-    {
-      question: `What does it cost me to host one in ${neighborhood.name}?`,
-      answer: `Nothing. There's no cost and no work on your end. If the location underperforms, we relocate the machine, so hosting is genuinely risk-free.`,
-    },
-  ];
+  currentLocation: Location,
+  limit: number = 4
+): { name: string; url: string }[] {
+  return venueType.locations
+    .filter((slug) => slug !== currentLocation.slug)
+    .map((slug) => getLocation(slug))
+    .filter((l): l is Location => Boolean(l))
+    .slice(0, limit)
+    .map((l) => ({
+      name: l.name,
+      url: `/${venueType.slug}/${l.slug}`,
+    }));
 }
