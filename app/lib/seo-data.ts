@@ -10,6 +10,8 @@ export interface VenueType {
   description: string;
   benefit: string;
   locations: string[];
+  mockup: string;
+  model: string; // "host" | "tenant"
 }
 
 export interface Location {
@@ -76,11 +78,18 @@ export function getPageData(
 
   const eyebrow = where;
 
-  const headline = `Passive income for ${location.name} ${venueType.plural}.`;
+  // Landlord venues (malls, public markets) lease space to a tenant — "passive
+  // income" is host language and the wrong frame. They get "non-traditional
+  // revenue"; independent owners keep the host framing.
+  const headline = venueType.model === "tenant"
+    ? `Non-traditional revenue for ${location.name} ${venueType.plural}.`
+    : `Passive income for ${location.name} ${venueType.plural}.`;
 
   const metaTitle = `Trading-Card Vending for ${venueType.displayName} in ${location.name} | Salish Trading Co.`;
 
-  const metaDescription = `Host a sealed trading-card vending machine at your ${location.name} ${venueType.name.toLowerCase()}. We own, stock, service, and insure it — you earn a share of every sale. No cost, no work.`;
+  const metaDescription = venueType.model === "tenant"
+    ? `Add a trading-card vending machine to your ${location.name} ${venueType.name.toLowerCase()}. We own, stock, service, and insure it — non-traditional revenue from a footprint a traditional tenant can't fill, on rent or a share of sales.`
+    : `Host a sealed trading-card vending machine at your ${location.name} ${venueType.name.toLowerCase()}. We own, stock, service, and insure it — you earn a share of every sale. No cost, no work.`;
 
   return {
     venueType,

@@ -7,15 +7,18 @@ export default function Navigation() {
         <Link href="/">
           <img src="/salishlogo.png" alt="Salish Trading Co." className="h-10" />
         </Link>
-        <div className="hidden md:flex gap-8 text-sm">
+        <div className="hidden md:flex gap-8 text-sm items-center">
           <Link href="/#how-it-works" className="text-muted hover:text-dark transition-colors">
             How It Works
           </Link>
           <Link href="/#where-it-fits" className="text-muted hover:text-dark transition-colors">
             Where It Fits
           </Link>
-          <Link href="/#waitlist" className="text-muted hover:text-dark transition-colors">
-            Host Waitlist
+          <Link href="/#hosts" className="text-muted hover:text-dark transition-colors">
+            For Hosts
+          </Link>
+          <Link href="/#contact" className="bg-dark text-cream px-5 py-2 hover:bg-forest transition-colors">
+            Get in touch
           </Link>
         </div>
       </div>

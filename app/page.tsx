@@ -385,12 +385,12 @@ export default function Home() {
               The same machine, very different spots.
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
+              { src: "mall", label: "Shopping mall" },
               { src: "farmers-market", label: "Farmers market" },
               { src: "bar", label: "Neighborhood bar" },
               { src: "beer-garden", label: "Beer garden" },
-              { src: "mall", label: "Shopping mall" },
             ].map((m) => (
               <figure key={m.src} className="overflow-hidden rounded-2xl shadow-2xl">
                 <Image

@@ -6,7 +6,16 @@
     "displayName": "Seasonal Farms & Pumpkin Patches",
     "description": "A whole season of families streaming through with cash in hand — a natural impulse buy on the way out.",
     "benefit": "A whole season of families streaming through with cash in hand. A sealed-pack machine in the farm market or by the exit is the easy impulse buy on the way out — and it earns through every weekend of the rush.",
-    "locations": ["carnation", "snohomish", "woodinville", "puyallup", "maple-valley", "auburn"]
+    "locations": [
+      "carnation",
+      "snohomish",
+      "woodinville",
+      "puyallup",
+      "maple-valley",
+      "auburn"
+    ],
+    "mockup": "farmers-market",
+    "model": "host"
   },
   {
     "slug": "shopping-malls",
@@ -15,7 +24,16 @@
     "displayName": "Shopping Malls",
     "description": "Steady all-day foot traffic and shoppers already in spending mode.",
     "benefit": "Steady foot traffic all day and shoppers already in spending mode. A sealed-pack machine on the concourse earns its few square feet without a single staff hour.",
-    "locations": ["tukwila", "bellevue", "lynnwood", "redmond", "university-district", "downtown-seattle"]
+    "locations": [
+      "tukwila",
+      "bellevue",
+      "lynnwood",
+      "redmond",
+      "university-district",
+      "downtown-seattle"
+    ],
+    "mockup": "mall",
+    "model": "tenant"
   },
   {
     "slug": "public-markets",
@@ -24,7 +42,16 @@
     "displayName": "Public Markets",
     "description": "Dense, browsing crowds in a spending mood, all day, every day.",
     "benefit": "Dense, browsing crowds in a spending mood, all day, every day. A sealed-pack machine fits right into the market floor and runs itself.",
-    "locations": ["downtown-seattle", "ballard", "capitol-hill", "fremont", "bellevue", "university-district"]
+    "locations": [
+      "downtown-seattle",
+      "ballard",
+      "capitol-hill",
+      "fremont",
+      "bellevue",
+      "university-district"
+    ],
+    "mockup": "street-market",
+    "model": "tenant"
   },
   {
     "slug": "beer-gardens",
@@ -33,7 +60,15 @@
     "displayName": "Beer Gardens",
     "description": "Long, relaxed sessions and a crowd happy to spend.",
     "benefit": "Long, relaxed sessions and a crowd happy to spend. A card machine becomes a conversation piece and a second reason to stick around — earning from a corner you weren't using.",
-    "locations": ["capitol-hill", "fremont", "georgetown", "ballard", "west-seattle"]
+    "locations": [
+      "capitol-hill",
+      "fremont",
+      "georgetown",
+      "ballard",
+      "west-seattle"
+    ],
+    "mockup": "beer-garden",
+    "model": "host"
   },
   {
     "slug": "breweries",
@@ -42,7 +77,15 @@
     "displayName": "Breweries & Taprooms",
     "description": "Taprooms full of regulars with time on their hands.",
     "benefit": "Taprooms full of regulars with time on their hands. A sealed-pack machine adds a little fun and a steady trickle of revenue from a corner you weren't using.",
-    "locations": ["ballard", "fremont", "georgetown", "capitol-hill", "queen-anne"]
+    "locations": [
+      "ballard",
+      "fremont",
+      "georgetown",
+      "capitol-hill",
+      "queen-anne"
+    ],
+    "mockup": "bar",
+    "model": "host"
   },
   {
     "slug": "bars-pubs",
@@ -51,7 +94,17 @@
     "displayName": "Bars & Pubs",
     "description": "Neighborhood regulars who linger — a card machine is a talker and a draw.",
     "benefit": "Neighborhood regulars who linger over a drink. A card machine is a talker and a draw, and it earns from a few square feet by the door.",
-    "locations": ["capitol-hill", "ballard", "fremont", "west-seattle", "columbia-city", "belltown", "pioneer-square"]
+    "locations": [
+      "capitol-hill",
+      "ballard",
+      "fremont",
+      "west-seattle",
+      "columbia-city",
+      "belltown",
+      "pioneer-square"
+    ],
+    "mockup": "bar",
+    "model": "host"
   },
   {
     "slug": "coffee-shops",
@@ -60,7 +113,18 @@
     "displayName": "Coffee Shops & Cafés",
     "description": "Regulars who linger over a drink — a small daily ritual.",
     "benefit": "Regulars who linger over a drink. A tucked-in pack machine becomes a small daily ritual and a steady trickle of passive income.",
-    "locations": ["capitol-hill", "ballard", "fremont", "university-district", "wallingford", "west-seattle", "greenwood", "columbia-city"]
+    "locations": [
+      "capitol-hill",
+      "ballard",
+      "fremont",
+      "university-district",
+      "wallingford",
+      "west-seattle",
+      "greenwood",
+      "columbia-city"
+    ],
+    "mockup": "c-store",
+    "model": "host"
   },
   {
     "slug": "barber-shops",
@@ -69,7 +133,16 @@
     "displayName": "Barbershops & Salons",
     "description": "Built-in wait times and a captive chair — the classic impulse spot.",
     "benefit": "Built-in wait times and a captive chair. The classic home for an impulse machine — found money from the corner of your shop.",
-    "locations": ["capitol-hill", "ballard", "columbia-city", "west-seattle", "greenwood", "beacon-hill"]
+    "locations": [
+      "capitol-hill",
+      "ballard",
+      "columbia-city",
+      "west-seattle",
+      "greenwood",
+      "beacon-hill"
+    ],
+    "mockup": "c-store",
+    "model": "host"
   },
   {
     "slug": "laundromats",
@@ -78,6 +151,14 @@
     "displayName": "Laundromats",
     "description": "Thirty idle minutes per visit and an outlet to spare.",
     "benefit": "Thirty idle minutes per visit and an outlet to spare. Laundromats and vending go way back — this one just pays you a cut.",
-    "locations": ["capitol-hill", "university-district", "columbia-city", "beacon-hill", "greenwood"]
+    "locations": [
+      "capitol-hill",
+      "university-district",
+      "columbia-city",
+      "beacon-hill",
+      "greenwood"
+    ],
+    "mockup": "c-store",
+    "model": "host"
   }
 ]
