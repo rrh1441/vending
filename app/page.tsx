@@ -456,13 +456,15 @@ export default function Home() {
               if it doesn&apos;t perform.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-            {venueTypes.map((v) => (
-              <div key={v.slug} className="border border-cream/15 p-6">
-                <h3 className="font-serif text-xl mb-2">{v.displayName}</h3>
-                <p className="text-cream/70 text-sm leading-relaxed">{v.description}</p>
-              </div>
-            ))}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            {venueTypes
+              .filter((v) => v.model === "host")
+              .map((v) => (
+                <div key={v.slug} className="border border-cream/15 p-6">
+                  <h3 className="font-serif text-xl mb-2">{v.displayName}</h3>
+                  <p className="text-cream/70 text-sm leading-relaxed">{v.description}</p>
+                </div>
+              ))}
           </div>
           <a
             href="#contact"
