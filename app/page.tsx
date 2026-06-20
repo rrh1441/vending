@@ -242,7 +242,7 @@ export default function Home() {
               >
                 High-traffic space,
                 <br />
-                <span className="italic">meet high-margin retail.</span>
+                <span className="italic">meet high-margin retail</span>
               </motion.h1>
               <motion.p
                 variants={fadeIn}
