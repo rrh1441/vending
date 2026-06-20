@@ -92,6 +92,22 @@ const propertyFits = [
   },
 ];
 
+// Live events — a separate offering from vending: a pack-ripping host for premium events.
+const eventOfferings = [
+  {
+    title: "Cocktail hours & receptions",
+    body: "The host opens packs with guests during cocktail hour or between courses, building to the big pulls the whole room leans in for.",
+  },
+  {
+    title: "Corporate & brand events",
+    body: "A novel draw for launches, holiday parties, and client events — an interactive moment that gives people a reason to gather and talk.",
+  },
+  {
+    title: "Private celebrations",
+    body: "Milestone birthdays, anniversaries, and collector parties — a shared experience built around the cards, not just a backdrop.",
+  },
+];
+
 const faqs = [
   {
     question: "How does a placement work for a property?",
@@ -192,6 +208,9 @@ export default function Home() {
             </a>
             <a href="#hosts" className="text-muted hover:text-dark transition-colors">
               For Hosts
+            </a>
+            <a href="#events" className="text-muted hover:text-dark transition-colors">
+              Live Events
             </a>
             <a href="#contact" className="bg-dark text-cream px-5 py-2 hover:bg-forest transition-colors">
               Get in touch
@@ -475,6 +494,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Live events — pack-ripping host (premium entertainment, separate from vending) */}
+      <section id="events" className="py-32 px-6 bg-dark text-cream">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-3xl mb-16">
+            <p className="text-sm tracking-[0.2em] uppercase text-gold mb-6">
+              Live events
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
+              A live pack-ripping host
+              <br />
+              <span className="italic">for premium events.</span>
+            </h2>
+            <div className="space-y-6 text-cream/80 text-lg leading-relaxed">
+              <p>
+                A charismatic host opens sealed trading-card packs &mdash; Pok&eacute;mon and
+                sports &mdash; with your guests, works the room, and turns the big pulls into a
+                moment everyone gathers around. Closer to a live painter or a specialty performer
+                than a photo booth.
+              </p>
+              <p>
+                Premium live entertainment for weddings, corporate parties, launches, and private
+                celebrations. An optional video add-on captures the reactions as shareable content.
+              </p>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {eventOfferings.map((o) => (
+              <div key={o.title} className="border border-cream/15 p-8">
+                <h3 className="font-serif text-2xl mb-4">{o.title}</h3>
+                <p className="text-cream/75 leading-relaxed">{o.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+            <a
+              href="#contact"
+              className="inline-block bg-cream text-dark px-8 py-4 text-sm tracking-wide hover:bg-gold hover:text-cream transition-colors"
+            >
+              Talk to us about an event
+            </a>
+            <p className="text-cream/70 text-sm leading-relaxed">
+              Typically a few hours at your event, with an optional video add-on. Greater Seattle.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <FAQ faqs={faqs} subtitle="Common questions" />
 
@@ -537,6 +603,7 @@ export default function Home() {
                     <option value="Farm or event venue">Farm or event venue</option>
                     <option value="Multi-location operator">Multi-location operator</option>
                     <option value="Independent venue (host)">Independent venue (host)</option>
+                    <option value="Event or wedding planner">Event or wedding planner</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>

@@ -60,6 +60,11 @@ export async function POST(request: Request) {
   // 2. Email notification + confirmation — best effort. The lead is already
   //    saved, so a mail failure (e.g. missing API key locally) shouldn't fail
   //    the request.
+  // Live-event inquiries are a different product (a pack-ripping host), so they
+  // get their own notification subject and confirmation copy — not the vending
+  // host-machine recap.
+  const isEvent = venueType === "Event or wedding planner";
+
   if (process.env.RESEND_API_KEY) {
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
@@ -67,10 +72,10 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from: FROM,
         to: NOTIFY_TO,
-        subject: `New host lead: ${businessName} (${venueType})`,
+        subject: `${isEvent ? "New event lead" : "New host lead"}: ${businessName} (${venueType})`,
         replyTo: email,
         html: `
-          <h2>New Host Waitlist Submission</h2>
+          <h2>${isEvent ? "New Live-Event Inquiry" : "New Host Waitlist Submission"}</h2>
           <p><strong>Business:</strong> ${escapeHtml(businessName)}</p>
           <p><strong>Venue type:</strong> ${escapeHtml(venueType)}</p>
           <p><strong>Neighborhood:</strong> ${escapeHtml(neighborhood) || "Not specified"}</p>
@@ -84,8 +89,18 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from: FROM,
         to: email,
-        subject: "You're on the founding-host list",
-        html: `
+        subject: isEvent
+          ? "Thanks for reaching out — Salish Trading Co."
+          : "You're on the founding-host list",
+        html: isEvent
+          ? `
+          <h2>Thanks, ${escapeHtml(contactName)}!</h2>
+          <p>Got your note about ${escapeHtml(businessName)}. We'll be in touch about bringing a live pack-ripping host to your events.</p>
+          <p>Quick version: a host opens trading-card packs with your guests, works the room, and turns the big pulls into a shared moment — premium live entertainment for weddings, corporate parties, and private events. It typically runs a few hours, with an optional video add-on.</p>
+          <p>Reply to this email anytime.</p>
+          <p>— The Salish Trading Co. team</p>
+        `
+          : `
           <h2>Thanks, ${escapeHtml(contactName)}!</h2>
           <p>We've added ${escapeHtml(businessName)} to our founding-host list. We'll be in touch to talk through the details.</p>
           <p>Quick recap of how it works: we own, stock, service, and insure the machine and run the payments. You give it a few square feet and an outlet, and earn a cut of every sale — or a flat monthly rent, your choice.</p>
